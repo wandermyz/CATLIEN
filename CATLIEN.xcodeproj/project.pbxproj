@@ -195,6 +195,8 @@
 		C15DF17215E07B51001BD63A /* RootViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = C15DF17115E07B51001BD63A /* RootViewController.mm */; };
 		C15DF17615E07B51001BD63A /* AppDelegate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C15DF17515E07B51001BD63A /* AppDelegate.cpp */; };
 		C15DF17915E07B51001BD63A /* HelloWorldScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C15DF17815E07B51001BD63A /* HelloWorldScene.cpp */; };
+		C15DF18D15E097BE001BD63A /* LevelScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C15DF18B15E097BE001BD63A /* LevelScene.cpp */; };
+		C15DF19215E099F0001BD63A /* LevelMapLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C15DF19015E099F0001BD63A /* LevelMapLayer.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -598,6 +600,10 @@
 		C15DF17515E07B51001BD63A /* AppDelegate.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = AppDelegate.cpp; path = Classes/AppDelegate.cpp; sourceTree = "<group>"; };
 		C15DF17715E07B51001BD63A /* HelloWorldScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = HelloWorldScene.h; path = Classes/HelloWorldScene.h; sourceTree = "<group>"; };
 		C15DF17815E07B51001BD63A /* HelloWorldScene.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = HelloWorldScene.cpp; path = Classes/HelloWorldScene.cpp; sourceTree = "<group>"; };
+		C15DF18B15E097BE001BD63A /* LevelScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = LevelScene.cpp; path = Classes/Scenes/LevelScene.cpp; sourceTree = "<group>"; };
+		C15DF18C15E097BE001BD63A /* LevelScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LevelScene.h; path = Classes/Scenes/LevelScene.h; sourceTree = "<group>"; };
+		C15DF19015E099F0001BD63A /* LevelMapLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = LevelMapLayer.cpp; path = Layers/Level/LevelMapLayer.cpp; sourceTree = "<group>"; };
+		C15DF19115E099F0001BD63A /* LevelMapLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LevelMapLayer.h; path = Layers/Level/LevelMapLayer.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1409,12 +1415,40 @@
 		C15DF17315E07B51001BD63A /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				C15DF18E15E099A9001BD63A /* Layers */,
+				C15DF18A15E097A8001BD63A /* Scenes */,
 				C15DF17415E07B51001BD63A /* AppDelegate.h */,
 				C15DF17515E07B51001BD63A /* AppDelegate.cpp */,
 				C15DF17715E07B51001BD63A /* HelloWorldScene.h */,
 				C15DF17815E07B51001BD63A /* HelloWorldScene.cpp */,
 			);
 			name = Classes;
+			sourceTree = "<group>";
+		};
+		C15DF18A15E097A8001BD63A /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				C15DF18B15E097BE001BD63A /* LevelScene.cpp */,
+				C15DF18C15E097BE001BD63A /* LevelScene.h */,
+			);
+			name = Scenes;
+			sourceTree = "<group>";
+		};
+		C15DF18E15E099A9001BD63A /* Layers */ = {
+			isa = PBXGroup;
+			children = (
+				C15DF18F15E099B0001BD63A /* Level */,
+			);
+			name = Layers;
+			sourceTree = "<group>";
+		};
+		C15DF18F15E099B0001BD63A /* Level */ = {
+			isa = PBXGroup;
+			children = (
+				C15DF19015E099F0001BD63A /* LevelMapLayer.cpp */,
+				C15DF19115E099F0001BD63A /* LevelMapLayer.h */,
+			);
+			name = Level;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1657,6 +1691,8 @@
 				C15DF17215E07B51001BD63A /* RootViewController.mm in Sources */,
 				C15DF17615E07B51001BD63A /* AppDelegate.cpp in Sources */,
 				C15DF17915E07B51001BD63A /* HelloWorldScene.cpp in Sources */,
+				C15DF18D15E097BE001BD63A /* LevelScene.cpp in Sources */,
+				C15DF19215E099F0001BD63A /* LevelMapLayer.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1667,7 +1703,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -1686,6 +1723,8 @@
 					"\"$(SDKROOT)/usr/include/libxml2\"",
 				);
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -1694,7 +1733,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					NDEBUG,
@@ -1711,6 +1751,8 @@
 				);
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				SDKROOT = iphoneos;
 			};
 			name = Release;
