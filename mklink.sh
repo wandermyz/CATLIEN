@@ -1,4 +1,6 @@
-ln -s ./modules/cocos2dx/cocos2dx ./CATLIEN/libs/cocos2dx
-mkdir ./CATLIEN/libs/CocosDenshion
-ls -s ./modules/cocos2dx/CocosDenshion/include ./CATLIEN/libs/CocosDenshion/include
-ls -s ./modules/cocos2dx/CocosDenshion/ios ./CATLIEN/libs/CocosDenshion/iphone
+cd ./CATLIEN/libs
+ln -s ../../modules/cocos2dx/cocos2dx ./cocos2dx
+mkdir ./CocosDenshion
+cd ./CocosDenshion
+ln -s ../../../modules/cocos2dx/CocosDenshion/include ./include
+ln -s ../../../modules/cocos2dx/CocosDenshion/ios ./iphone
