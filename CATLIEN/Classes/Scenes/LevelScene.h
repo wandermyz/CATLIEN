@@ -10,13 +10,17 @@
 #define __CATLIEN__LevelScene__
 
 #include "cocos2d.h"
+#include "LevelMapLayer.h"
 
 class LevelScene : public cocos2d::CCScene {
 
+private:
+    LevelMapLayer* levelMapLayer;
+    
 public:
     virtual bool init();
     virtual void end();
-    SCENE_NODE_FUNC(LevelScene);
+    SCENE_CREATE_FUNC(LevelScene);
 
 };
 

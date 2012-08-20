@@ -196,7 +196,12 @@
 		C15DF17615E07B51001BD63A /* AppDelegate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C15DF17515E07B51001BD63A /* AppDelegate.cpp */; };
 		C15DF17915E07B51001BD63A /* HelloWorldScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C15DF17815E07B51001BD63A /* HelloWorldScene.cpp */; };
 		C15DF18D15E097BE001BD63A /* LevelScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C15DF18B15E097BE001BD63A /* LevelScene.cpp */; };
-		C15DF19215E099F0001BD63A /* LevelMapLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C15DF19015E099F0001BD63A /* LevelMapLayer.cpp */; };
+		C15DF19815E199E6001BD63A /* LevelMapLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C15DF19615E199E6001BD63A /* LevelMapLayer.cpp */; };
+		C15DF19B15E19A38001BD63A /* GameObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C15DF19915E19A38001BD63A /* GameObject.cpp */; };
+		C15DF19E15E19FF3001BD63A /* Planet.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C15DF19C15E19FF3001BD63A /* Planet.cpp */; };
+		C15DF1A215E1A4AD001BD63A /* AnimationTexture.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C15DF1A015E1A4AD001BD63A /* AnimationTexture.cpp */; };
+		C15DF1A615E1B151001BD63A /* mockup.plist in Resources */ = {isa = PBXBuildFile; fileRef = C15DF1A415E1B151001BD63A /* mockup.plist */; };
+		C15DF1A715E1B151001BD63A /* mockup.png in Resources */ = {isa = PBXBuildFile; fileRef = C15DF1A515E1B151001BD63A /* mockup.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -602,8 +607,16 @@
 		C15DF17815E07B51001BD63A /* HelloWorldScene.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = HelloWorldScene.cpp; path = Classes/HelloWorldScene.cpp; sourceTree = "<group>"; };
 		C15DF18B15E097BE001BD63A /* LevelScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = LevelScene.cpp; path = Classes/Scenes/LevelScene.cpp; sourceTree = "<group>"; };
 		C15DF18C15E097BE001BD63A /* LevelScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LevelScene.h; path = Classes/Scenes/LevelScene.h; sourceTree = "<group>"; };
-		C15DF19015E099F0001BD63A /* LevelMapLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = LevelMapLayer.cpp; path = Layers/Level/LevelMapLayer.cpp; sourceTree = "<group>"; };
-		C15DF19115E099F0001BD63A /* LevelMapLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LevelMapLayer.h; path = Layers/Level/LevelMapLayer.h; sourceTree = "<group>"; };
+		C15DF19615E199E6001BD63A /* LevelMapLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LevelMapLayer.cpp; sourceTree = "<group>"; };
+		C15DF19715E199E6001BD63A /* LevelMapLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelMapLayer.h; sourceTree = "<group>"; };
+		C15DF19915E19A38001BD63A /* GameObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GameObject.cpp; path = Classes/GameObjects/GameObject.cpp; sourceTree = "<group>"; };
+		C15DF19A15E19A38001BD63A /* GameObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameObject.h; path = Classes/GameObjects/GameObject.h; sourceTree = "<group>"; };
+		C15DF19C15E19FF3001BD63A /* Planet.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Planet.cpp; path = Classes/GameObjects/Planet.cpp; sourceTree = "<group>"; };
+		C15DF19D15E19FF3001BD63A /* Planet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Planet.h; path = Classes/GameObjects/Planet.h; sourceTree = "<group>"; };
+		C15DF1A015E1A4AD001BD63A /* AnimationTexture.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = AnimationTexture.cpp; path = Classes/Graphics/AnimationTexture.cpp; sourceTree = "<group>"; };
+		C15DF1A115E1A4AD001BD63A /* AnimationTexture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AnimationTexture.h; path = Classes/Graphics/AnimationTexture.h; sourceTree = "<group>"; };
+		C15DF1A415E1B151001BD63A /* mockup.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = mockup.plist; path = Resources/SpriteSheets/mockup.plist; sourceTree = "<group>"; };
+		C15DF1A515E1B151001BD63A /* mockup.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = mockup.png; path = Resources/SpriteSheets/mockup.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -672,6 +685,7 @@
 		C15DEF1115E07B4D001BD63A /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				C15DF1A315E1B005001BD63A /* SpriteSheets */,
 				C15DEF1215E07B4D001BD63A /* CloseNormal.png */,
 				C15DEF1415E07B4D001BD63A /* CloseSelected.png */,
 				C15DEF1615E07B4D001BD63A /* Default.png */,
@@ -1415,7 +1429,9 @@
 		C15DF17315E07B51001BD63A /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				C15DF18E15E099A9001BD63A /* Layers */,
+				C15DF19F15E1A411001BD63A /* Graphics */,
+				C15DF19415E199E5001BD63A /* Layers */,
+				C15DF19315E1998A001BD63A /* GameObjects */,
 				C15DF18A15E097A8001BD63A /* Scenes */,
 				C15DF17415E07B51001BD63A /* AppDelegate.h */,
 				C15DF17515E07B51001BD63A /* AppDelegate.cpp */,
@@ -1434,21 +1450,51 @@
 			name = Scenes;
 			sourceTree = "<group>";
 		};
-		C15DF18E15E099A9001BD63A /* Layers */ = {
+		C15DF19315E1998A001BD63A /* GameObjects */ = {
 			isa = PBXGroup;
 			children = (
-				C15DF18F15E099B0001BD63A /* Level */,
+				C15DF19915E19A38001BD63A /* GameObject.cpp */,
+				C15DF19A15E19A38001BD63A /* GameObject.h */,
+				C15DF19C15E19FF3001BD63A /* Planet.cpp */,
+				C15DF19D15E19FF3001BD63A /* Planet.h */,
 			);
-			name = Layers;
+			name = GameObjects;
 			sourceTree = "<group>";
 		};
-		C15DF18F15E099B0001BD63A /* Level */ = {
+		C15DF19415E199E5001BD63A /* Layers */ = {
 			isa = PBXGroup;
 			children = (
-				C15DF19015E099F0001BD63A /* LevelMapLayer.cpp */,
-				C15DF19115E099F0001BD63A /* LevelMapLayer.h */,
+				C15DF19515E199E6001BD63A /* Level */,
 			);
-			name = Level;
+			name = Layers;
+			path = Classes/Layers;
+			sourceTree = "<group>";
+		};
+		C15DF19515E199E6001BD63A /* Level */ = {
+			isa = PBXGroup;
+			children = (
+				C15DF19615E199E6001BD63A /* LevelMapLayer.cpp */,
+				C15DF19715E199E6001BD63A /* LevelMapLayer.h */,
+			);
+			path = Level;
+			sourceTree = "<group>";
+		};
+		C15DF19F15E1A411001BD63A /* Graphics */ = {
+			isa = PBXGroup;
+			children = (
+				C15DF1A015E1A4AD001BD63A /* AnimationTexture.cpp */,
+				C15DF1A115E1A4AD001BD63A /* AnimationTexture.h */,
+			);
+			name = Graphics;
+			sourceTree = "<group>";
+		};
+		C15DF1A315E1B005001BD63A /* SpriteSheets */ = {
+			isa = PBXGroup;
+			children = (
+				C15DF1A415E1B151001BD63A /* mockup.plist */,
+				C15DF1A515E1B151001BD63A /* mockup.png */,
+			);
+			name = SpriteSheets;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1516,6 +1562,8 @@
 				C15DEF2B15E07B4D001BD63A /* fps_images-hd.png in Resources */,
 				C15DEF2D15E07B4D001BD63A /* fps_images-ipadhd.png in Resources */,
 				C15DEFB515E07B4E001BD63A /* ChangeLog in Resources */,
+				C15DF1A615E1B151001BD63A /* mockup.plist in Resources */,
+				C15DF1A715E1B151001BD63A /* mockup.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1692,7 +1740,10 @@
 				C15DF17615E07B51001BD63A /* AppDelegate.cpp in Sources */,
 				C15DF17915E07B51001BD63A /* HelloWorldScene.cpp in Sources */,
 				C15DF18D15E097BE001BD63A /* LevelScene.cpp in Sources */,
-				C15DF19215E099F0001BD63A /* LevelMapLayer.cpp in Sources */,
+				C15DF19815E199E6001BD63A /* LevelMapLayer.cpp in Sources */,
+				C15DF19B15E19A38001BD63A /* GameObject.cpp in Sources */,
+				C15DF19E15E19FF3001BD63A /* Planet.cpp in Sources */,
+				C15DF1A215E1A4AD001BD63A /* AnimationTexture.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

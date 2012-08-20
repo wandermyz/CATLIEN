@@ -9,7 +9,8 @@
 #include "AppDelegate.h"
 
 #include "cocos2d.h"
-#include "HelloWorldScene.h"
+//#include "HelloWorldScene.h"
+#include "LevelScene.h"
 
 USING_NS_CC;
 
@@ -37,8 +38,10 @@ bool AppDelegate::applicationDidFinishLaunching()
     // set FPS. the default value is 1.0/60 if you don't call this
     pDirector->setAnimationInterval(1.0 / 60);
 
+    loadSpriteSheets();
+    
     // create a scene. it's an autorelease object
-    CCScene *pScene = HelloWorld::scene();
+    CCScene *pScene = LevelScene::create(); //HelloWorld::scene();
 
     // run
     pDirector->runWithScene(pScene);
@@ -62,4 +65,9 @@ void AppDelegate::applicationWillEnterForeground()
     
     // if you use SimpleAudioEngine, it must resume here
     // SimpleAudioEngine::sharedEngine()->resumeBackgroundMusic();
+}
+
+void AppDelegate::loadSpriteSheets()
+{
+    CCSpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile("mockup.plist");
 }

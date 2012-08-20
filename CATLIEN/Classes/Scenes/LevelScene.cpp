@@ -15,6 +15,9 @@ bool LevelScene::init() {
         return false;
     }
     
+    levelMapLayer = LevelMapLayer::create();
+    addChild(levelMapLayer);
+    
     return true;
 }
 

@@ -71,6 +71,10 @@ bool HelloWorld::init()
     // add the sprite as a child to this layer
     this->addChild(pSprite, 0);
     
+    CCSprite* mySprite = CCSprite::createWithSpriteFrameName("planet_1.png");
+    this->addChild(mySprite, 0);
+    
+    
     return true;
 }
 
