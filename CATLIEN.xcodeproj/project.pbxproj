@@ -202,6 +202,11 @@
 		C15DF1A215E1A4AD001BD63A /* AnimationTexture.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C15DF1A015E1A4AD001BD63A /* AnimationTexture.cpp */; };
 		C15DF1A615E1B151001BD63A /* mockup.plist in Resources */ = {isa = PBXBuildFile; fileRef = C15DF1A415E1B151001BD63A /* mockup.plist */; };
 		C15DF1A715E1B151001BD63A /* mockup.png in Resources */ = {isa = PBXBuildFile; fileRef = C15DF1A515E1B151001BD63A /* mockup.png */; };
+		C15DF1CD15E8B440001BD63A /* LevelEditorLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C15DF1CB15E8B440001BD63A /* LevelEditorLayer.cpp */; };
+		C15DF1D115E8B55C001BD63A /* EditorBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C15DF1CF15E8B55C001BD63A /* EditorBase.cpp */; };
+		C15DF1DC15E8BE29001BD63A /* CCEditBox.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C15DF1D515E8BE29001BD63A /* CCEditBox.cpp */; };
+		C15DF1DD15E8BE29001BD63A /* CCEditBoxImplIOS.mm in Sources */ = {isa = PBXBuildFile; fileRef = C15DF1D915E8BE29001BD63A /* CCEditBoxImplIOS.mm */; };
+		C15DF1DE15E8BE29001BD63A /* EditBoxImplIOS.mm in Sources */ = {isa = PBXBuildFile; fileRef = C15DF1DB15E8BE29001BD63A /* EditBoxImplIOS.mm */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -617,6 +622,17 @@
 		C15DF1A115E1A4AD001BD63A /* AnimationTexture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AnimationTexture.h; path = Classes/Graphics/AnimationTexture.h; sourceTree = "<group>"; };
 		C15DF1A415E1B151001BD63A /* mockup.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = mockup.plist; path = Resources/SpriteSheets/mockup.plist; sourceTree = "<group>"; };
 		C15DF1A515E1B151001BD63A /* mockup.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = mockup.png; path = Resources/SpriteSheets/mockup.png; sourceTree = "<group>"; };
+		C15DF1CB15E8B440001BD63A /* LevelEditorLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LevelEditorLayer.cpp; sourceTree = "<group>"; };
+		C15DF1CC15E8B440001BD63A /* LevelEditorLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelEditorLayer.h; sourceTree = "<group>"; };
+		C15DF1CF15E8B55C001BD63A /* EditorBase.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = EditorBase.cpp; path = Classes/Editors/EditorBase.cpp; sourceTree = "<group>"; };
+		C15DF1D015E8B55C001BD63A /* EditorBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EditorBase.h; path = Classes/Editors/EditorBase.h; sourceTree = "<group>"; };
+		C15DF1D515E8BE29001BD63A /* CCEditBox.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CCEditBox.cpp; sourceTree = "<group>"; };
+		C15DF1D615E8BE29001BD63A /* CCEditBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCEditBox.h; sourceTree = "<group>"; };
+		C15DF1D715E8BE29001BD63A /* CCEditBoxImpl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCEditBoxImpl.h; sourceTree = "<group>"; };
+		C15DF1D815E8BE29001BD63A /* CCEditBoxImplIOS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCEditBoxImplIOS.h; sourceTree = "<group>"; };
+		C15DF1D915E8BE29001BD63A /* CCEditBoxImplIOS.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CCEditBoxImplIOS.mm; sourceTree = "<group>"; };
+		C15DF1DA15E8BE29001BD63A /* EditBoxImplIOS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditBoxImplIOS.h; sourceTree = "<group>"; };
+		C15DF1DB15E8BE29001BD63A /* EditBoxImplIOS.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = EditBoxImplIOS.mm; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1359,6 +1375,7 @@
 		C15DF13D15E07B51001BD63A /* GUI */ = {
 			isa = PBXGroup;
 			children = (
+				C15DF1D415E8BE29001BD63A /* CCEditBox */,
 				C15DF13E15E07B51001BD63A /* CCControlExtension */,
 				C15DF16415E07B51001BD63A /* CCScrollView */,
 			);
@@ -1429,6 +1446,7 @@
 		C15DF17315E07B51001BD63A /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				C15DF1CE15E8B51F001BD63A /* Editors */,
 				C15DF19F15E1A411001BD63A /* Graphics */,
 				C15DF19415E199E5001BD63A /* Layers */,
 				C15DF19315E1998A001BD63A /* GameObjects */,
@@ -1475,6 +1493,8 @@
 			children = (
 				C15DF19615E199E6001BD63A /* LevelMapLayer.cpp */,
 				C15DF19715E199E6001BD63A /* LevelMapLayer.h */,
+				C15DF1CB15E8B440001BD63A /* LevelEditorLayer.cpp */,
+				C15DF1CC15E8B440001BD63A /* LevelEditorLayer.h */,
 			);
 			path = Level;
 			sourceTree = "<group>";
@@ -1495,6 +1515,30 @@
 				C15DF1A515E1B151001BD63A /* mockup.png */,
 			);
 			name = SpriteSheets;
+			sourceTree = "<group>";
+		};
+		C15DF1CE15E8B51F001BD63A /* Editors */ = {
+			isa = PBXGroup;
+			children = (
+				C15DF1CF15E8B55C001BD63A /* EditorBase.cpp */,
+				C15DF1D015E8B55C001BD63A /* EditorBase.h */,
+			);
+			name = Editors;
+			sourceTree = "<group>";
+		};
+		C15DF1D415E8BE29001BD63A /* CCEditBox */ = {
+			isa = PBXGroup;
+			children = (
+				C15DF1D515E8BE29001BD63A /* CCEditBox.cpp */,
+				C15DF1D615E8BE29001BD63A /* CCEditBox.h */,
+				C15DF1D715E8BE29001BD63A /* CCEditBoxImpl.h */,
+				C15DF1D815E8BE29001BD63A /* CCEditBoxImplIOS.h */,
+				C15DF1D915E8BE29001BD63A /* CCEditBoxImplIOS.mm */,
+				C15DF1DA15E8BE29001BD63A /* EditBoxImplIOS.h */,
+				C15DF1DB15E8BE29001BD63A /* EditBoxImplIOS.mm */,
+			);
+			name = CCEditBox;
+			path = libs/extensions/GUI/CCEditBox;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1744,6 +1788,11 @@
 				C15DF19B15E19A38001BD63A /* GameObject.cpp in Sources */,
 				C15DF19E15E19FF3001BD63A /* Planet.cpp in Sources */,
 				C15DF1A215E1A4AD001BD63A /* AnimationTexture.cpp in Sources */,
+				C15DF1CD15E8B440001BD63A /* LevelEditorLayer.cpp in Sources */,
+				C15DF1D115E8B55C001BD63A /* EditorBase.cpp in Sources */,
+				C15DF1DC15E8BE29001BD63A /* CCEditBox.cpp in Sources */,
+				C15DF1DD15E8BE29001BD63A /* CCEditBoxImplIOS.mm in Sources */,
+				C15DF1DE15E8BE29001BD63A /* EditBoxImplIOS.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

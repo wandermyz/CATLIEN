@@ -17,13 +17,14 @@ bool LevelMapLayer::init()
         return false;
     }
     
-    //CCSprite* mySprite = CCSprite::createWithSpriteFrameName("planet_1.png");
-    //this->addChild(mySprite, 0);
-    
-    AnimationTexture* tex = AnimationTexture::createWithSpriteFrameName("planet_1.png");
-    this->addChild(tex);
-    
-    this->removeChild(tex, true);
+
+    editorLayer = LevelEditorLayer::create();
+    this->addChild(editorLayer);
+
+    /*AnimationTexture* tex = AnimationTexture::createWithSpriteFrameName("planet_1.png");
+    tex->setPosition(ccp(0,0));
+    this->addChild(tex);*/
+    //editorLayer->addChild(tex);
     
     return true;
 }

@@ -10,11 +10,13 @@
 #define __CATLIEN__LevelMapLayer__
 
 #include "cocos2d.h"
+#include "LevelEditorLayer.h"
 
 class LevelMapLayer : public cocos2d::CCLayer
 {
 private:
     cocos2d::CCArray* mapElements;
+    LevelEditorLayer* editorLayer;
     
 public:
     LAYER_CREATE_FUNC(LevelMapLayer);
