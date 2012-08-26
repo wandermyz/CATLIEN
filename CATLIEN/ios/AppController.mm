@@ -13,13 +13,21 @@
 
 #import "RootViewController.h"
 
+#import "LevelEditor/CreatingMenuController.h"
+#include "Leveleditor/LevelEditorHandler.h"
+#include "GlobalEngine.h"
+
 @implementation AppController
+{
+    LevelEditorHandler levelEditorHandler;
+}
 
 #pragma mark -
 #pragma mark Application lifecycle
 
 // cocos2d application instance
 static AppDelegate s_sharedApplication;
+
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 
@@ -43,9 +51,13 @@ static AppDelegate s_sharedApplication;
     // Set RootViewController to window
     [window addSubview: viewController.view];
     [window makeKeyAndVisible];
-
+    
     [[UIApplication sharedApplication] setStatusBarHidden: YES];
-
+    
+    [LevelEditorManager initSharedWithParentView:viewController.view];
+    GlobalEngine::sharedGlobalEngine()->setLevelEditorHandler(&levelEditorHandler);
+    //[[LevelEditorManager sharedLevelEditorManager] showCreatingMenu];
+    
     cocos2d::CCApplication::sharedApplication().run();
     return YES;
 }
@@ -70,7 +82,7 @@ static AppDelegate s_sharedApplication;
     /*
      Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
      If your application supports background execution, called instead of applicationWillTerminate: when the user quits.
-     */
+     *////
     cocos2d::CCApplication::sharedApplication().applicationDidEnterBackground();
 }
 

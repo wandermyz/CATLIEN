@@ -20,6 +20,7 @@ private:
 public:
     virtual bool init();
     virtual void end();
+    
     SCENE_CREATE_FUNC(LevelScene);
 
 };

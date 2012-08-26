@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C1236CB515E999C3008F5AED /* LevelEditorManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C1236CB415E999C3008F5AED /* LevelEditorManager.m */; };
+		C1236CBD15E9ABF5008F5AED /* GlobalEngine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C1236CBB15E9ABF5008F5AED /* GlobalEngine.cpp */; };
+		C1236CC015E9ADDA008F5AED /* LevelEditorHandler.mm in Sources */ = {isa = PBXBuildFile; fileRef = C1236CBE15E9ADDA008F5AED /* LevelEditorHandler.mm */; };
 		C15DEF0115E07B4D001BD63A /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C15DEF0015E07B4D001BD63A /* QuartzCore.framework */; };
 		C15DEF0315E07B4D001BD63A /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C15DEF0215E07B4D001BD63A /* OpenGLES.framework */; };
 		C15DEF0515E07B4D001BD63A /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C15DEF0415E07B4D001BD63A /* OpenAL.framework */; };
@@ -202,14 +205,21 @@
 		C15DF1A215E1A4AD001BD63A /* AnimationTexture.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C15DF1A015E1A4AD001BD63A /* AnimationTexture.cpp */; };
 		C15DF1A615E1B151001BD63A /* mockup.plist in Resources */ = {isa = PBXBuildFile; fileRef = C15DF1A415E1B151001BD63A /* mockup.plist */; };
 		C15DF1A715E1B151001BD63A /* mockup.png in Resources */ = {isa = PBXBuildFile; fileRef = C15DF1A515E1B151001BD63A /* mockup.png */; };
-		C15DF1CD15E8B440001BD63A /* LevelEditorLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C15DF1CB15E8B440001BD63A /* LevelEditorLayer.cpp */; };
-		C15DF1D115E8B55C001BD63A /* EditorBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C15DF1CF15E8B55C001BD63A /* EditorBase.cpp */; };
 		C15DF1DC15E8BE29001BD63A /* CCEditBox.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C15DF1D515E8BE29001BD63A /* CCEditBox.cpp */; };
 		C15DF1DD15E8BE29001BD63A /* CCEditBoxImplIOS.mm in Sources */ = {isa = PBXBuildFile; fileRef = C15DF1D915E8BE29001BD63A /* CCEditBoxImplIOS.mm */; };
 		C15DF1DE15E8BE29001BD63A /* EditBoxImplIOS.mm in Sources */ = {isa = PBXBuildFile; fileRef = C15DF1DB15E8BE29001BD63A /* EditBoxImplIOS.mm */; };
+		C15DF22715E980D0001BD63A /* CreatingMenuController.m in Sources */ = {isa = PBXBuildFile; fileRef = C15DF22515E980CF001BD63A /* CreatingMenuController.m */; };
+		C15DF22815E980D0001BD63A /* CreatingMenuController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C15DF22615E980D0001BD63A /* CreatingMenuController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C1236CB315E999C3008F5AED /* LevelEditorManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LevelEditorManager.h; path = ios/LevelEditor/LevelEditorManager.h; sourceTree = "<group>"; };
+		C1236CB415E999C3008F5AED /* LevelEditorManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LevelEditorManager.m; path = ios/LevelEditor/LevelEditorManager.m; sourceTree = "<group>"; };
+		C1236CB915E9AB92008F5AED /* LevelEditorHandlerBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LevelEditorHandlerBase.h; path = Classes/LevelEditor/LevelEditorHandlerBase.h; sourceTree = "<group>"; };
+		C1236CBB15E9ABF5008F5AED /* GlobalEngine.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GlobalEngine.cpp; path = Classes/GlobalEngine.cpp; sourceTree = "<group>"; };
+		C1236CBC15E9ABF5008F5AED /* GlobalEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GlobalEngine.h; path = Classes/GlobalEngine.h; sourceTree = "<group>"; };
+		C1236CBE15E9ADDA008F5AED /* LevelEditorHandler.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = LevelEditorHandler.mm; path = ios/LevelEditor/LevelEditorHandler.mm; sourceTree = "<group>"; };
+		C1236CBF15E9ADDA008F5AED /* LevelEditorHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LevelEditorHandler.h; path = ios/LevelEditor/LevelEditorHandler.h; sourceTree = "<group>"; };
 		C15DEEFC15E07B4D001BD63A /* CATLIEN.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CATLIEN.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C15DEF0015E07B4D001BD63A /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		C15DEF0215E07B4D001BD63A /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -622,10 +632,6 @@
 		C15DF1A115E1A4AD001BD63A /* AnimationTexture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AnimationTexture.h; path = Classes/Graphics/AnimationTexture.h; sourceTree = "<group>"; };
 		C15DF1A415E1B151001BD63A /* mockup.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = mockup.plist; path = Resources/SpriteSheets/mockup.plist; sourceTree = "<group>"; };
 		C15DF1A515E1B151001BD63A /* mockup.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = mockup.png; path = Resources/SpriteSheets/mockup.png; sourceTree = "<group>"; };
-		C15DF1CB15E8B440001BD63A /* LevelEditorLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LevelEditorLayer.cpp; sourceTree = "<group>"; };
-		C15DF1CC15E8B440001BD63A /* LevelEditorLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelEditorLayer.h; sourceTree = "<group>"; };
-		C15DF1CF15E8B55C001BD63A /* EditorBase.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = EditorBase.cpp; path = Classes/Editors/EditorBase.cpp; sourceTree = "<group>"; };
-		C15DF1D015E8B55C001BD63A /* EditorBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EditorBase.h; path = Classes/Editors/EditorBase.h; sourceTree = "<group>"; };
 		C15DF1D515E8BE29001BD63A /* CCEditBox.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CCEditBox.cpp; sourceTree = "<group>"; };
 		C15DF1D615E8BE29001BD63A /* CCEditBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCEditBox.h; sourceTree = "<group>"; };
 		C15DF1D715E8BE29001BD63A /* CCEditBoxImpl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCEditBoxImpl.h; sourceTree = "<group>"; };
@@ -633,6 +639,9 @@
 		C15DF1D915E8BE29001BD63A /* CCEditBoxImplIOS.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CCEditBoxImplIOS.mm; sourceTree = "<group>"; };
 		C15DF1DA15E8BE29001BD63A /* EditBoxImplIOS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditBoxImplIOS.h; sourceTree = "<group>"; };
 		C15DF1DB15E8BE29001BD63A /* EditBoxImplIOS.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = EditBoxImplIOS.mm; sourceTree = "<group>"; };
+		C15DF22415E980CF001BD63A /* CreatingMenuController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CreatingMenuController.h; path = ios/LevelEditor/CreatingMenuController.h; sourceTree = "<group>"; };
+		C15DF22515E980CF001BD63A /* CreatingMenuController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CreatingMenuController.m; path = ios/LevelEditor/CreatingMenuController.m; sourceTree = "<group>"; };
+		C15DF22615E980D0001BD63A /* CreatingMenuController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CreatingMenuController.xib; path = ios/LevelEditor/CreatingMenuController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -654,6 +663,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C1236CB715E9AB40008F5AED /* LevelEditor */ = {
+			isa = PBXGroup;
+			children = (
+				C1236CB915E9AB92008F5AED /* LevelEditorHandlerBase.h */,
+			);
+			name = LevelEditor;
+			sourceTree = "<group>";
+		};
 		C15DEEF115E07B4D001BD63A = {
 			isa = PBXGroup;
 			children = (
@@ -701,6 +718,7 @@
 		C15DEF1115E07B4D001BD63A /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				C15DF1E815E97580001BD63A /* LevelEditor */,
 				C15DF1A315E1B005001BD63A /* SpriteSheets */,
 				C15DEF1215E07B4D001BD63A /* CloseNormal.png */,
 				C15DEF1415E07B4D001BD63A /* CloseSelected.png */,
@@ -1434,6 +1452,7 @@
 		C15DF16A15E07B51001BD63A /* ios */ = {
 			isa = PBXGroup;
 			children = (
+				C15DF1E515E97347001BD63A /* LevelEditor */,
 				C15DF16B15E07B51001BD63A /* main.m */,
 				C15DF16D15E07B51001BD63A /* AppController.h */,
 				C15DF16E15E07B51001BD63A /* AppController.mm */,
@@ -1446,7 +1465,7 @@
 		C15DF17315E07B51001BD63A /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				C15DF1CE15E8B51F001BD63A /* Editors */,
+				C1236CB715E9AB40008F5AED /* LevelEditor */,
 				C15DF19F15E1A411001BD63A /* Graphics */,
 				C15DF19415E199E5001BD63A /* Layers */,
 				C15DF19315E1998A001BD63A /* GameObjects */,
@@ -1455,6 +1474,8 @@
 				C15DF17515E07B51001BD63A /* AppDelegate.cpp */,
 				C15DF17715E07B51001BD63A /* HelloWorldScene.h */,
 				C15DF17815E07B51001BD63A /* HelloWorldScene.cpp */,
+				C1236CBB15E9ABF5008F5AED /* GlobalEngine.cpp */,
+				C1236CBC15E9ABF5008F5AED /* GlobalEngine.h */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -1493,8 +1514,6 @@
 			children = (
 				C15DF19615E199E6001BD63A /* LevelMapLayer.cpp */,
 				C15DF19715E199E6001BD63A /* LevelMapLayer.h */,
-				C15DF1CB15E8B440001BD63A /* LevelEditorLayer.cpp */,
-				C15DF1CC15E8B440001BD63A /* LevelEditorLayer.h */,
 			);
 			path = Level;
 			sourceTree = "<group>";
@@ -1517,15 +1536,6 @@
 			name = SpriteSheets;
 			sourceTree = "<group>";
 		};
-		C15DF1CE15E8B51F001BD63A /* Editors */ = {
-			isa = PBXGroup;
-			children = (
-				C15DF1CF15E8B55C001BD63A /* EditorBase.cpp */,
-				C15DF1D015E8B55C001BD63A /* EditorBase.h */,
-			);
-			name = Editors;
-			sourceTree = "<group>";
-		};
 		C15DF1D415E8BE29001BD63A /* CCEditBox */ = {
 			isa = PBXGroup;
 			children = (
@@ -1539,6 +1549,27 @@
 			);
 			name = CCEditBox;
 			path = libs/extensions/GUI/CCEditBox;
+			sourceTree = "<group>";
+		};
+		C15DF1E515E97347001BD63A /* LevelEditor */ = {
+			isa = PBXGroup;
+			children = (
+				C15DF22415E980CF001BD63A /* CreatingMenuController.h */,
+				C15DF22515E980CF001BD63A /* CreatingMenuController.m */,
+				C15DF22615E980D0001BD63A /* CreatingMenuController.xib */,
+				C1236CB315E999C3008F5AED /* LevelEditorManager.h */,
+				C1236CB415E999C3008F5AED /* LevelEditorManager.m */,
+				C1236CBE15E9ADDA008F5AED /* LevelEditorHandler.mm */,
+				C1236CBF15E9ADDA008F5AED /* LevelEditorHandler.h */,
+			);
+			name = LevelEditor;
+			sourceTree = "<group>";
+		};
+		C15DF1E815E97580001BD63A /* LevelEditor */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = LevelEditor;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1608,6 +1639,7 @@
 				C15DEFB515E07B4E001BD63A /* ChangeLog in Resources */,
 				C15DF1A615E1B151001BD63A /* mockup.plist in Resources */,
 				C15DF1A715E1B151001BD63A /* mockup.png in Resources */,
+				C15DF22815E980D0001BD63A /* CreatingMenuController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1788,11 +1820,13 @@
 				C15DF19B15E19A38001BD63A /* GameObject.cpp in Sources */,
 				C15DF19E15E19FF3001BD63A /* Planet.cpp in Sources */,
 				C15DF1A215E1A4AD001BD63A /* AnimationTexture.cpp in Sources */,
-				C15DF1CD15E8B440001BD63A /* LevelEditorLayer.cpp in Sources */,
-				C15DF1D115E8B55C001BD63A /* EditorBase.cpp in Sources */,
 				C15DF1DC15E8BE29001BD63A /* CCEditBox.cpp in Sources */,
 				C15DF1DD15E8BE29001BD63A /* CCEditBoxImplIOS.mm in Sources */,
 				C15DF1DE15E8BE29001BD63A /* EditBoxImplIOS.mm in Sources */,
+				C15DF22715E980D0001BD63A /* CreatingMenuController.m in Sources */,
+				C1236CB515E999C3008F5AED /* LevelEditorManager.m in Sources */,
+				C1236CBD15E9ABF5008F5AED /* GlobalEngine.cpp in Sources */,
+				C1236CC015E9ADDA008F5AED /* LevelEditorHandler.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
