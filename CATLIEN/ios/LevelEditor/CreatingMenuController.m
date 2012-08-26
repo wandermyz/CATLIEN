@@ -33,12 +33,14 @@
 
 - (void)createMenuItems
 {
-    menuItemNames = [[[NSArray alloc] initWithObjects:
-              @"Planet",@"Platform",
+    menuItemNames = [[NSArray alloc] initWithObjects:
+              @"Planet",
+              @"Platform",
               @"MovingPlatform",
               @"Tree",
               @"NPC",
-              nil] autorelease];
+              nil];
+    [menuItemNames retain];
 }
 
 - (void)viewDidLoad
@@ -51,7 +53,8 @@
 {
     [super viewDidUnload];
     // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
+    [menuItemNames release];
+    menuItemNames = nil;
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -66,14 +69,13 @@
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
-        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier ] autorelease];
+        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier ] autorelease];
     }
     
     // Set up the cell...
     NSString *cellValue = [menuItemNames objectAtIndex:indexPath.row];
     cell.textLabel.text = cellValue;
-    cell.textLabel.textAlignment = UITextAlignmentCenter;
-    
+
     return cell;
 }
 

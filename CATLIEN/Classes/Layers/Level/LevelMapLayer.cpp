@@ -40,6 +40,5 @@ void LevelMapLayer::ccTouchMoved(CCTouch *touch, CCEvent *event)
 
 void LevelMapLayer::ccTouchEnded(CCTouch *touch, CCEvent *event)
 {
-    CCLOG("touched");
     GlobalEngine::sharedGlobalEngine()->getLevelEditorHandler()->showCreatingMenu();
 }
