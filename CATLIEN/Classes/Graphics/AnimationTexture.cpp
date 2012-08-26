@@ -42,6 +42,13 @@ bool AnimationTexture::initWithSpriteFrameName(const char *spriteFrameName)
     }
     
     addChild(sprite);
+    sprite->setPosition(ccp(0,0));
+    sprite->setAnchorPoint(ccp(0,0));
+    
+    CCRect bb = sprite->boundingBox();
+    
+    setAnchorPoint(ccp(0.5, 0.5));
+    setContentSize(sprite->getContentSize());
     
     return true;
 }

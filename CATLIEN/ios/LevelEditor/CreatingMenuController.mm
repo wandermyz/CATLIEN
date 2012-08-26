@@ -9,6 +9,9 @@
 #import "CreatingMenuController.h"
 #import "LevelEditorManager.h"
 
+#include "../../Classes/GameObjects/GameObjects.h"
+#include "../../Classes/GlobalEngine.h"
+
 @interface CreatingMenuController ()
 
 @end
@@ -91,8 +94,25 @@
 
 - (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    GameObject* gameObject;
+    
+    switch (indexPath.row) {
+        case 0:
+            gameObject = Planet::create();
+            break;
+            
+        default:
+            gameObject = NULL;
+            break;
+    }
+    
+    if (gameObject != NULL)
+    {
+        GlobalEngine::sharedGlobalEngine()->getLevelMapLayer()->addElement(gameObject);
+        GlobalEngine::sharedGlobalEngine()->getLevelMapLayer()->randomizeElementPosition(gameObject);
+    }
+    
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-        
     [[LevelEditorManager sharedLevelEditorManager] hideCreatingMenu];
 }
 
