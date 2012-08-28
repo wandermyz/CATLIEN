@@ -28,6 +28,7 @@ public:
     
     virtual bool init();
     virtual bool containsPoint(const cocos2d::CCPoint& p);
+    virtual void drawSelection();
 };
 
 #endif /* defined(__CATLIEN__Planet__) */

@@ -24,6 +24,12 @@ bool LevelMapLayer::init()
     this->addChild(tex);*/
     //editorLayer->addChild(tex);
     
+    _gameObjects = CCArray::create();
+    _gameObjects->retain();
+    
+    _primitiveLayer = LevelMapPrimitiveLayer::create();
+    addChild(_primitiveLayer, LEVEL_MAP_LAYER_PRIMITIVE_Z);
+    
     return true;
 }
 
@@ -31,33 +37,24 @@ void LevelMapLayer::onEnter()
 {
     CCLayer::onEnter();
     GlobalEngine::sharedGlobalEngine()->setLevelMapLayer(this);
-    CCDirector::sharedDirector()->getTouchDispatcher()->addTargetedDelegate(this, 0, true);
+    
+    CCDirector::sharedDirector()->getTouchDispatcher()->addTargetedDelegate(GlobalEngine::sharedGlobalEngine()->getLevelEditorInputManager(), 0, true);    
 }
 
 void LevelMapLayer::onExit()
 {
-    CCDirector::sharedDirector()->getTouchDispatcher()->removeDelegate(this);
-    CCLayer::onExit();
-}
-
-bool LevelMapLayer::ccTouchBegan(CCTouch *touch, CCEvent *event)
-{
-    return true;
-}
-
-void LevelMapLayer::ccTouchMoved(CCTouch *touch, CCEvent *event)
-{
+    CCDirector::sharedDirector()->getTouchDispatcher()->removeDelegate(GlobalEngine::sharedGlobalEngine()->getLevelEditorInputManager());
     
-}
-
-void LevelMapLayer::ccTouchEnded(CCTouch *touch, CCEvent *event)
-{
-    GlobalEngine::sharedGlobalEngine()->getLevelEditorHandler()->showCreatingMenu();
+    _gameObjects->removeAllObjects();
+    _gameObjects->release();
+    
+    CCLayer::onExit();
 }
 
 void LevelMapLayer::addElement(GameObject *gameObject)
 {
-    addChild(gameObject);
+    addChild(gameObject, LEVEL_MAP_LAYER_ELEMENTS_Z);
+    _gameObjects->addObject(gameObject);
 }
 
 void LevelMapLayer::setElementPosition(GameObject *gameObject, cocos2d::CCPoint position)

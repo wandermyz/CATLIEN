@@ -21,40 +21,28 @@ bool GameObject::init()
 void GameObject::onEnter()
 {
     CCNode::onEnter();
-    
-    CCDirector::sharedDirector()->getTouchDispatcher()->addTargetedDelegate(this, 0, true);
 }
 
 void GameObject::onExit()
 {
-    CCDirector::sharedDirector()->getTouchDispatcher()->removeDelegate(this);
     CCNode::onExit();
-}
-
-bool GameObject::ccTouchBegan(cocos2d::CCTouch *touch, cocos2d::CCEvent *event)
-{
-    //return if in editor mode
-    if (containsPoint(touch->getLocation()))
-    {
-        return true;
-    }
-    else
-    {
-        return false;
-    }
-}
-
-void GameObject::ccTouchMoved(cocos2d::CCTouch *touch, cocos2d::CCEvent *event)
-{
-    setPosition(ccpAdd(getPosition(), touch->getDelta()));
-}
-
-void GameObject::ccTouchEnded(cocos2d::CCTouch *touch, cocos2d::CCEvent *event)
-{
-    
 }
 
 bool GameObject::containsPoint(const CCPoint& p)
 {
     return boundingBox().containsPoint(p);
+}
+
+void GameObject::drawSelection()
+{
+    ccDrawColor4B(255, 255, 255, 255);
+    glLineWidth(3);
+    CCRect rect = boundingBox();
+    
+    CCPoint vertices[] = {
+        ccp(rect.getMinX(), rect.getMinY()),
+        ccp(rect.getMaxX(), rect.getMinY()),
+        ccp(rect.getMaxX(), rect.getMaxY()),
+        ccp(rect.getMinX(), rect.getMaxY()) };
+    ccDrawPoly( vertices, 4, true);
 }

@@ -33,7 +33,7 @@ return NULL; \
 
 #define GAME_OBJECT_TYPE_FUNC(type) virtual std::string getType() const {return (type);}
 
-class GameObject : public cocos2d::CCNode, public cocos2d::CCTargetedTouchDelegate
+class GameObject : public cocos2d::CCNode
 {
 private:
     
@@ -47,11 +47,8 @@ public:
     virtual void onEnter();
     virtual void onExit();
     
-    virtual bool ccTouchBegan(cocos2d::CCTouch* touch, cocos2d::CCEvent* event);
-    virtual void ccTouchMoved(cocos2d::CCTouch* touch, cocos2d::CCEvent* event);
-    virtual void ccTouchEnded(cocos2d::CCTouch* touch, cocos2d::CCEvent* event);
-    
     virtual bool containsPoint(const cocos2d::CCPoint& p);
+    virtual void drawSelection();
     
     virtual std::string getType() const = 0;
     

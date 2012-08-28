@@ -10,6 +10,8 @@
 		C1236CB515E999C3008F5AED /* LevelEditorManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C1236CB415E999C3008F5AED /* LevelEditorManager.m */; };
 		C1236CBD15E9ABF5008F5AED /* GlobalEngine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C1236CBB15E9ABF5008F5AED /* GlobalEngine.cpp */; };
 		C1236CC015E9ADDA008F5AED /* LevelEditorHandler.mm in Sources */ = {isa = PBXBuildFile; fileRef = C1236CBE15E9ADDA008F5AED /* LevelEditorHandler.mm */; };
+		C1236CC815EB0C71008F5AED /* LevelEditorInputManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C1236CC615EB0C71008F5AED /* LevelEditorInputManager.cpp */; };
+		C1384BE515EC91DC00653764 /* LevelMapPrimitiveLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C1384BE315EC91DC00653764 /* LevelMapPrimitiveLayer.cpp */; };
 		C15DEF0115E07B4D001BD63A /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C15DEF0015E07B4D001BD63A /* QuartzCore.framework */; };
 		C15DEF0315E07B4D001BD63A /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C15DEF0215E07B4D001BD63A /* OpenGLES.framework */; };
 		C15DEF0515E07B4D001BD63A /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C15DEF0415E07B4D001BD63A /* OpenAL.framework */; };
@@ -197,7 +199,6 @@
 		C15DF16F15E07B51001BD63A /* AppController.mm in Sources */ = {isa = PBXBuildFile; fileRef = C15DF16E15E07B51001BD63A /* AppController.mm */; };
 		C15DF17215E07B51001BD63A /* RootViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = C15DF17115E07B51001BD63A /* RootViewController.mm */; };
 		C15DF17615E07B51001BD63A /* AppDelegate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C15DF17515E07B51001BD63A /* AppDelegate.cpp */; };
-		C15DF17915E07B51001BD63A /* HelloWorldScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C15DF17815E07B51001BD63A /* HelloWorldScene.cpp */; };
 		C15DF18D15E097BE001BD63A /* LevelScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C15DF18B15E097BE001BD63A /* LevelScene.cpp */; };
 		C15DF19815E199E6001BD63A /* LevelMapLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C15DF19615E199E6001BD63A /* LevelMapLayer.cpp */; };
 		C15DF19B15E19A38001BD63A /* GameObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C15DF19915E19A38001BD63A /* GameObject.cpp */; };
@@ -221,6 +222,10 @@
 		C1236CBE15E9ADDA008F5AED /* LevelEditorHandler.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = LevelEditorHandler.mm; path = ios/LevelEditor/LevelEditorHandler.mm; sourceTree = "<group>"; };
 		C1236CBF15E9ADDA008F5AED /* LevelEditorHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LevelEditorHandler.h; path = ios/LevelEditor/LevelEditorHandler.h; sourceTree = "<group>"; };
 		C1236CC115E9FF99008F5AED /* GameObjects.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = GameObjects.h; path = Classes/GameObjects/GameObjects.h; sourceTree = "<group>"; };
+		C1236CC615EB0C71008F5AED /* LevelEditorInputManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = LevelEditorInputManager.cpp; path = Classes/Input/LevelEditorInputManager.cpp; sourceTree = "<group>"; };
+		C1236CC715EB0C71008F5AED /* LevelEditorInputManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LevelEditorInputManager.h; path = Classes/Input/LevelEditorInputManager.h; sourceTree = "<group>"; };
+		C1384BE315EC91DC00653764 /* LevelMapPrimitiveLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LevelMapPrimitiveLayer.cpp; sourceTree = "<group>"; };
+		C1384BE415EC91DC00653764 /* LevelMapPrimitiveLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelMapPrimitiveLayer.h; sourceTree = "<group>"; };
 		C15DEEFC15E07B4D001BD63A /* CATLIEN.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CATLIEN.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C15DEF0015E07B4D001BD63A /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		C15DEF0215E07B4D001BD63A /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -619,8 +624,6 @@
 		C15DF17115E07B51001BD63A /* RootViewController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = RootViewController.mm; path = ios/RootViewController.mm; sourceTree = "<group>"; };
 		C15DF17415E07B51001BD63A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = Classes/AppDelegate.h; sourceTree = "<group>"; };
 		C15DF17515E07B51001BD63A /* AppDelegate.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = AppDelegate.cpp; path = Classes/AppDelegate.cpp; sourceTree = "<group>"; };
-		C15DF17715E07B51001BD63A /* HelloWorldScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = HelloWorldScene.h; path = Classes/HelloWorldScene.h; sourceTree = "<group>"; };
-		C15DF17815E07B51001BD63A /* HelloWorldScene.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = HelloWorldScene.cpp; path = Classes/HelloWorldScene.cpp; sourceTree = "<group>"; };
 		C15DF18B15E097BE001BD63A /* LevelScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = LevelScene.cpp; path = Classes/Scenes/LevelScene.cpp; sourceTree = "<group>"; };
 		C15DF18C15E097BE001BD63A /* LevelScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LevelScene.h; path = Classes/Scenes/LevelScene.h; sourceTree = "<group>"; };
 		C15DF19615E199E6001BD63A /* LevelMapLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LevelMapLayer.cpp; sourceTree = "<group>"; };
@@ -670,6 +673,15 @@
 				C1236CB915E9AB92008F5AED /* LevelEditorHandlerBase.h */,
 			);
 			name = LevelEditor;
+			sourceTree = "<group>";
+		};
+		C1236CC215EB0BBB008F5AED /* Input */ = {
+			isa = PBXGroup;
+			children = (
+				C1236CC615EB0C71008F5AED /* LevelEditorInputManager.cpp */,
+				C1236CC715EB0C71008F5AED /* LevelEditorInputManager.h */,
+			);
+			name = Input;
 			sourceTree = "<group>";
 		};
 		C15DEEF115E07B4D001BD63A = {
@@ -1466,6 +1478,7 @@
 		C15DF17315E07B51001BD63A /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				C1236CC215EB0BBB008F5AED /* Input */,
 				C1236CB715E9AB40008F5AED /* LevelEditor */,
 				C15DF19F15E1A411001BD63A /* Graphics */,
 				C15DF19415E199E5001BD63A /* Layers */,
@@ -1473,8 +1486,6 @@
 				C15DF18A15E097A8001BD63A /* Scenes */,
 				C15DF17415E07B51001BD63A /* AppDelegate.h */,
 				C15DF17515E07B51001BD63A /* AppDelegate.cpp */,
-				C15DF17715E07B51001BD63A /* HelloWorldScene.h */,
-				C15DF17815E07B51001BD63A /* HelloWorldScene.cpp */,
 				C1236CBB15E9ABF5008F5AED /* GlobalEngine.cpp */,
 				C1236CBC15E9ABF5008F5AED /* GlobalEngine.h */,
 			);
@@ -1516,6 +1527,8 @@
 			children = (
 				C15DF19615E199E6001BD63A /* LevelMapLayer.cpp */,
 				C15DF19715E199E6001BD63A /* LevelMapLayer.h */,
+				C1384BE315EC91DC00653764 /* LevelMapPrimitiveLayer.cpp */,
+				C1384BE415EC91DC00653764 /* LevelMapPrimitiveLayer.h */,
 			);
 			path = Level;
 			sourceTree = "<group>";
@@ -1816,7 +1829,6 @@
 				C15DF16F15E07B51001BD63A /* AppController.mm in Sources */,
 				C15DF17215E07B51001BD63A /* RootViewController.mm in Sources */,
 				C15DF17615E07B51001BD63A /* AppDelegate.cpp in Sources */,
-				C15DF17915E07B51001BD63A /* HelloWorldScene.cpp in Sources */,
 				C15DF18D15E097BE001BD63A /* LevelScene.cpp in Sources */,
 				C15DF19815E199E6001BD63A /* LevelMapLayer.cpp in Sources */,
 				C15DF19B15E19A38001BD63A /* GameObject.cpp in Sources */,
@@ -1829,6 +1841,8 @@
 				C1236CB515E999C3008F5AED /* LevelEditorManager.m in Sources */,
 				C1236CBD15E9ABF5008F5AED /* GlobalEngine.cpp in Sources */,
 				C1236CC015E9ADDA008F5AED /* LevelEditorHandler.mm in Sources */,
+				C1236CC815EB0C71008F5AED /* LevelEditorInputManager.cpp in Sources */,
+				C1384BE515EC91DC00653764 /* LevelMapPrimitiveLayer.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

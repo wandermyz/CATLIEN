@@ -44,3 +44,11 @@ bool Planet::containsPoint(const cocos2d::CCPoint &p)
     return ccpDistanceSQ(p, getPosition()) < _radius * _radius;
 }
 
+void Planet::drawSelection()
+{
+    ccDrawColor4B(255, 255, 255, 255);
+    glLineWidth(3);
+    
+    ccDrawCircle(getPosition(), _radius, CC_DEGREES_TO_RADIANS(360), 50, false);
+}
+
