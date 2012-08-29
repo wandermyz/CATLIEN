@@ -18,3 +18,14 @@ void LevelEditorHandler::hideCreatingMenu()
 {
     [[LevelEditorManager sharedLevelEditorManager] hideCreatingMenu];
 }
+
+void LevelEditorHandler::showEditorPanel(GameObject *gameObject)
+{
+    [[LevelEditorManager sharedLevelEditorManager] showEditorPanelFor:gameObject];
+}
+
+void LevelEditorHandler::hideEditorPanel()
+{
+    [[LevelEditorManager sharedLevelEditorManager] hideEditorPanel];
+}
+

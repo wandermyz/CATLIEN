@@ -9,12 +9,18 @@
 #import "LevelEditorManager.h"
 #import "AppController.h"
 #import "CreatingMenuController.h"
+#import "EditorPanelController.h"
+
 
 @implementation LevelEditorManager
 {
     UIView* _parentView;
+    
     CreatingMenuController* _creatingMenuController;
     UIPopoverController* _creatingMenuPopover;
+    
+    EditorPanelController* _editorPanelController;
+    UIPopoverController* _editorPanelPopover;
 }
 
 static LevelEditorManager* _sharedLevelEditorManager = nil;
@@ -47,7 +53,7 @@ static LevelEditorManager* _sharedLevelEditorManager = nil;
 {
     _creatingMenuController = [[[CreatingMenuController alloc] init] autorelease];
     _creatingMenuPopover = [[UIPopoverController alloc] initWithContentViewController:_creatingMenuController];
-    //_creatingMenuPopover.delegate = self;
+    _creatingMenuPopover.delegate = self;
     
     [_creatingMenuPopover presentPopoverFromRect:CGRectMake(0, 0, 1, 1) inView:_parentView permittedArrowDirections:UIPopoverArrowDirectionUp animated:YES];
     
@@ -58,9 +64,27 @@ static LevelEditorManager* _sharedLevelEditorManager = nil;
     [_creatingMenuPopover dismissPopoverAnimated:YES];
 }
 
+-(void)showEditorPanelFor:(GameObject *)gameObject
+{
+    _editorPanelController = [[[EditorPanelController alloc] init] autorelease];
+    _editorPanelPopover = [[UIPopoverController alloc] initWithContentViewController:_editorPanelController];
+    _editorPanelPopover.delegate = self;
+    
+    cocos2d::CCRect rect = gameObject->boundingBox();
+    [_editorPanelPopover presentPopoverFromRect:CGRectMake(rect.origin.x, rect.origin.y, rect.size.width, rect.size.height)
+                                         inView:_parentView
+                       permittedArrowDirections:UIPopoverArrowDirectionAny
+                                       animated:YES];
+}
+
 -(void)popoverControllerDidDismissPopover:(UIPopoverController *)popoverController
 {
-    [_creatingMenuPopover release];
+    if (popoverController == _editorPanelPopover)
+    {
+        //TODO
+    }
+    
+    [popoverController release];
 }
 
 @end

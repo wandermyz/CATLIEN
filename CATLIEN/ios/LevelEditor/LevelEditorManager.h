@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#include "../../Classes/GameObjects/GameObject.h"
 
 @class AppController;
 
@@ -16,4 +17,6 @@
 -(LevelEditorManager*) initWithParentView:(UIView*)parentView;
 -(void) showCreatingMenu;
 -(void) hideCreatingMenu;
+-(void) showEditorPanelFor: (GameObject*)gameObject;
+-(void) hideEditorPanel;
 @end

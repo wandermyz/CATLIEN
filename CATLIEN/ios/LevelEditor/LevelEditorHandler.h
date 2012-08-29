@@ -16,6 +16,8 @@ class LevelEditorHandler : public LevelEditorHandlerBase
 public:
     virtual void showCreatingMenu();
     virtual void hideCreatingMenu();
+    virtual void showEditorPanel(GameObject* gameObject);
+    virtual void hideEditorPanel();
 };
 
 #endif /* defined(__CATLIEN__LevelEditorHandler__) */
