@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "../../Classes/GameObjects/GameObject.h"
 
-@interface EditorPanelController : UITableViewController
-
+@interface EditorPanelController : UITableViewController<UITextFieldDelegate>
+- initWithGameObject: (GameObject *) gameObject;
 @end

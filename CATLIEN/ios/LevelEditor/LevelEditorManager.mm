@@ -51,8 +51,8 @@ static LevelEditorManager* _sharedLevelEditorManager = nil;
 
 -(void)showCreatingMenu
 {
-    _creatingMenuController = [[[CreatingMenuController alloc] init] autorelease];
-    _creatingMenuPopover = [[UIPopoverController alloc] initWithContentViewController:_creatingMenuController];
+    _creatingMenuController = [[[CreatingMenuController alloc] init] retain];
+    _creatingMenuPopover = [[[UIPopoverController alloc] initWithContentViewController:_creatingMenuController] retain];
     _creatingMenuPopover.delegate = self;
     
     [_creatingMenuPopover presentPopoverFromRect:CGRectMake(0, 0, 1, 1) inView:_parentView permittedArrowDirections:UIPopoverArrowDirectionUp animated:YES];
@@ -66,7 +66,7 @@ static LevelEditorManager* _sharedLevelEditorManager = nil;
 
 -(void)showEditorPanelFor:(GameObject *)gameObject
 {
-    _editorPanelController = [[[EditorPanelController alloc] init] autorelease];
+    _editorPanelController = [[[EditorPanelController alloc] initWithGameObject:gameObject] retain];
     _editorPanelPopover = [[UIPopoverController alloc] initWithContentViewController:_editorPanelController];
     _editorPanelPopover.delegate = self;
     
@@ -77,10 +77,21 @@ static LevelEditorManager* _sharedLevelEditorManager = nil;
                                        animated:YES];
 }
 
+-(void)hideEditorPanel
+{
+    [_editorPanelPopover dismissPopoverAnimated:YES];
+}
+
 -(void)popoverControllerDidDismissPopover:(UIPopoverController *)popoverController
 {
+    if (popoverController == _creatingMenuPopover)
+    {
+        [_creatingMenuController release];
+    }
     if (popoverController == _editorPanelPopover)
     {
+        [_editorPanelController release];
+        
         //TODO
     }
     

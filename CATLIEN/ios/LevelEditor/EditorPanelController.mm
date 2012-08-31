@@ -7,19 +7,26 @@
 //
 
 #import "EditorPanelController.h"
+#import "TextFieldTableViewCell.h"
 
 @interface EditorPanelController ()
 
 @end
 
 @implementation EditorPanelController
-
-- (id)initWithStyle:(UITableViewStyle)style
 {
-    self = [super initWithStyle:style];
-    if (self) {
-        // Custom initialization
+    GameObject* _gameObject;
+}
+
+- (id)initWithGameObject:(GameObject *)gameObject
+{
+    self = [super init];
+    
+    if (self)
+    {
+        _gameObject = gameObject;
     }
+    
     return self;
 }
 
@@ -59,34 +66,25 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    static NSString *CellIdentifier = @"EditorPanelCell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+{   
+    NSArray *CellIdentifiers = [NSArray arrayWithObjects:@"TextField", @"EditorContent", nil];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[CellIdentifiers objectAtIndex:indexPath.section]];
     
     if (indexPath.section == 0)
     {
         if (cell == nil) {
-            cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:CellIdentifier ] autorelease];
-            UITextField* nameTextField = [[UITextField alloc] initWithFrame:CGRectMake(0, 0, 220, 30)];
-            nameTextField.textAlignment = UITextAlignmentRight;
-            nameTextField.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
-            nameTextField.autocorrectionType = UITextAutocorrectionTypeNo;
-            nameTextField.autocapitalizationType = UITextAutocapitalizationTypeNone;
-            nameTextField.clearButtonMode = UITextFieldViewModeNever;
-            
-            cell.selectionStyle = UITableViewCellSelectionStyleNone;
-            cell.textLabel.text = @"Name";
-            cell.accessoryView = nameTextField;
+            cell = [[[TextFieldTableViewCell alloc] initWithLabel:@"Name" reuseIdentifier:[CellIdentifiers objectAtIndex:indexPath.section] delegate:self] autorelease];
+            [(TextFieldTableViewCell*)cell setTextFieldValue:[NSString stringWithUTF8String:_gameObject->getName().c_str()]];
         }
         
     }
     else if (indexPath.section == 1)
     {
         if (cell == nil) {
-            cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier ] autorelease];
+            cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:[CellIdentifiers objectAtIndex:indexPath.section]] autorelease];
         }
     }
-    
+
     return cell;
 }
 
@@ -104,57 +102,17 @@
     return nil;
 }
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+- (void)textFieldDidEndEditing:(UITextField *)textField
 {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
+    _gameObject->setName([textField.text UTF8String]);
 }
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    }   
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
 
 #pragma mark - Table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     [detailViewController release];
-     */
+    
 }
+
 
 @end
