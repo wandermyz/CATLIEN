@@ -214,6 +214,7 @@
 		C1C6D0AC15EDE26F00CE9F6C /* EditorPanelController.mm in Sources */ = {isa = PBXBuildFile; fileRef = C1C6D0AA15EDE26F00CE9F6C /* EditorPanelController.mm */; };
 		C1C6D0AD15EDE26F00CE9F6C /* EditorPanelController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C1C6D0AB15EDE26F00CE9F6C /* EditorPanelController.xib */; };
 		C1DAD4A915F06CE000134284 /* TextFieldTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C1DAD4A815F06CE000134284 /* TextFieldTableViewCell.m */; };
+		C1FE2E2415F1B5830000F84F /* PlanetContentViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = C1FE2E2315F1B5830000F84F /* PlanetContentViewController.mm */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -654,6 +655,8 @@
 		C1C6D0AB15EDE26F00CE9F6C /* EditorPanelController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = EditorPanelController.xib; path = ios/LevelEditor/EditorPanelController.xib; sourceTree = "<group>"; };
 		C1DAD4A715F06CE000134284 /* TextFieldTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TextFieldTableViewCell.h; path = ios/LevelEditor/TextFieldTableViewCell.h; sourceTree = "<group>"; };
 		C1DAD4A815F06CE000134284 /* TextFieldTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TextFieldTableViewCell.m; path = ios/LevelEditor/TextFieldTableViewCell.m; sourceTree = "<group>"; };
+		C1FE2E2215F1B5830000F84F /* PlanetContentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PlanetContentViewController.h; path = ios/LevelEditor/PlanetContentViewController.h; sourceTree = "<group>"; };
+		C1FE2E2315F1B5830000F84F /* PlanetContentViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = PlanetContentViewController.mm; path = ios/LevelEditor/PlanetContentViewController.mm; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1589,6 +1592,8 @@
 				C1C6D0AB15EDE26F00CE9F6C /* EditorPanelController.xib */,
 				C1DAD4A715F06CE000134284 /* TextFieldTableViewCell.h */,
 				C1DAD4A815F06CE000134284 /* TextFieldTableViewCell.m */,
+				C1FE2E2215F1B5830000F84F /* PlanetContentViewController.h */,
+				C1FE2E2315F1B5830000F84F /* PlanetContentViewController.mm */,
 			);
 			name = LevelEditor;
 			sourceTree = "<group>";
@@ -1859,6 +1864,7 @@
 				C1384BE515EC91DC00653764 /* LevelMapPrimitiveLayer.cpp in Sources */,
 				C1C6D0AC15EDE26F00CE9F6C /* EditorPanelController.mm in Sources */,
 				C1DAD4A915F06CE000134284 /* TextFieldTableViewCell.m in Sources */,
+				C1FE2E2415F1B5830000F84F /* PlanetContentViewController.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

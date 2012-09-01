@@ -10,26 +10,25 @@
 
 @implementation TextFieldTableViewCell
 {
-    UITextField* _nameTextField;
+    UITextField* _textField;
 }
 
 
-- (id)initWithLabel: (NSString* )label reuseIdentifier: (NSString *)reuseIdentifier delegate: (id<UITextFieldDelegate>) delegate
+- (id)initWithDelegate: (id<UITextFieldDelegate>) delegate reuseIdentifier: (NSString *)reuseIdentifier
 {
     self = [super initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:reuseIdentifier];
     if (self) {
         
-        _nameTextField = [[UITextField alloc] initWithFrame:CGRectMake(0, 0, 220, 30)];
-        _nameTextField.textAlignment = UITextAlignmentRight;
-        _nameTextField.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
-        _nameTextField.autocorrectionType = UITextAutocorrectionTypeNo;
-        _nameTextField.autocapitalizationType = UITextAutocapitalizationTypeNone;
-        _nameTextField.clearButtonMode = UITextFieldViewModeNever;
-        _nameTextField.delegate = delegate;
+        _textField = [[UITextField alloc] initWithFrame:CGRectMake(100, 0, 220, 40)];
+        _textField.textAlignment = UITextAlignmentRight;
+        _textField.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
+        _textField.autocorrectionType = UITextAutocorrectionTypeNo;
+        _textField.autocapitalizationType = UITextAutocapitalizationTypeNone;
+        _textField.clearButtonMode = UITextFieldViewModeNever;
+        _textField.delegate = delegate;
         
-        self.textLabel.text = label;
+        [self addSubview:_textField];
         self.selectionStyle = UITableViewCellSelectionStyleNone;
-        self.accessoryView = _nameTextField;
     }
     return self;
 }
@@ -43,12 +42,27 @@
 
 - (NSString *) getTextFieldValue
 {
-    return _nameTextField.text;
+    return _textField.text;
 }
 
 - (void) setTextFieldValue:(NSString *)value
 {
-    _nameTextField.text = value;
+    _textField.text = value;
+}
+
+- (NSString *) getLabel
+{
+    return self.textLabel.text;
+}
+
+- (void) setLabel:(NSString *)value
+{
+    self.textLabel.text = value;
+}
+
+- (UITextField *) getTextField
+{
+    return _textField;
 }
 
 @end

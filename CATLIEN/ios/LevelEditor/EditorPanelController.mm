@@ -8,6 +8,7 @@
 
 #import "EditorPanelController.h"
 #import "TextFieldTableViewCell.h"
+#import "PlanetContentViewController.h"
 
 @interface EditorPanelController ()
 
@@ -25,6 +26,7 @@
     if (self)
     {
         _gameObject = gameObject;
+        //self.tableView.scrollEnabled = NO;
     }
     
     return self;
@@ -73,19 +75,52 @@
     if (indexPath.section == 0)
     {
         if (cell == nil) {
-            cell = [[[TextFieldTableViewCell alloc] initWithLabel:@"Name" reuseIdentifier:[CellIdentifiers objectAtIndex:indexPath.section] delegate:self] autorelease];
-            [(TextFieldTableViewCell*)cell setTextFieldValue:[NSString stringWithUTF8String:_gameObject->getName().c_str()]];
+            cell = [[[TextFieldTableViewCell alloc] initWithDelegate:self reuseIdentifier:[CellIdentifiers objectAtIndex:indexPath.section]] autorelease];
         }
+        
+        [(TextFieldTableViewCell*)cell setTextFieldValue:[NSString stringWithUTF8String:_gameObject->getName().c_str()]];
+        [(TextFieldTableViewCell*)cell setLabel:@"Name"];
         
     }
     else if (indexPath.section == 1)
     {
         if (cell == nil) {
+            NSString* type = [NSString stringWithUTF8String:_gameObject->getType().c_str()];
             cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:[CellIdentifiers objectAtIndex:indexPath.section]] autorelease];
+            
+            if ([type isEqualToString:@"Planet"])
+            {
+                PlanetContentViewController* subview = [[PlanetContentViewController alloc] initWithPlanet:(Planet *)_gameObject];
+                [cell addSubview:subview.view];
+            }
+                
         }
     }
 
     return cell;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.section == 1)
+    {
+        NSString* type = [NSString stringWithUTF8String:_gameObject->getType().c_str()];
+        NSInteger rowNum;
+        if ([type isEqualToString:@"Planet"])
+        {
+            rowNum = 4;
+        }
+        else
+        {
+            rowNum = 10;
+        }
+        
+        return tableView.rowHeight * rowNum;
+    }
+    else
+    {
+        return tableView.rowHeight;
+    }
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section

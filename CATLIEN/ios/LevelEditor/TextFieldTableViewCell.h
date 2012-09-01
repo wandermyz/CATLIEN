@@ -9,7 +9,10 @@
 #import <UIKit/UIKit.h>
 
 @interface TextFieldTableViewCell : UITableViewCell
-- (id)initWithLabel: (NSString* )label reuseIdentifier: (NSString *)reuseIdentifier delegate: (id<UITextFieldDelegate>) delegate;
+- (id)initWithDelegate: (id<UITextFieldDelegate>) delegate reuseIdentifier: (NSString *)reuseIdentifier;
 - (NSString *) getTextFieldValue;
 - (void) setTextFieldValue: (NSString *) value;
+- (NSString *) getLabel;
+- (void) setLabel: (NSString *) value;
+- (UITextField* ) getTextField;
 @end

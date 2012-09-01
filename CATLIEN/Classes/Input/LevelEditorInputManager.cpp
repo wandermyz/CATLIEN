@@ -66,6 +66,7 @@ void LevelEditorInputManager::ccTouchMoved(CCTouch* touch, CCEvent* event)
     {
          _manipulatingObject->setPosition(ccpAdd(_manipulatingObject->getPosition(), touch->getDelta()));
     }
+    _isMoving = true;
 }
 
 void LevelEditorInputManager::ccTouchEnded(CCTouch* touch, CCEvent* event)
@@ -74,7 +75,11 @@ void LevelEditorInputManager::ccTouchEnded(CCTouch* touch, CCEvent* event)
     
     if (_manipulatingObject != NULL)
     {
-        GlobalEngine::sharedGlobalEngine()->getLevelEditorHandler()->showEditorPanel(_manipulatingObject);
+        if (!_isMoving)
+        {
+            GlobalEngine::sharedGlobalEngine()->getLevelEditorHandler()->showEditorPanel(_manipulatingObject);
+        }
+        
         _manipulatingObject = NULL;
     }
     else if (levelMapLayer->getSelections()->count() > 0)
@@ -85,6 +90,8 @@ void LevelEditorInputManager::ccTouchEnded(CCTouch* touch, CCEvent* event)
     {
         GlobalEngine::sharedGlobalEngine()->getLevelEditorHandler()->showCreatingMenu();
     }
+    
+    _isMoving = false;
 }
 
 

@@ -15,8 +15,9 @@
 class LevelEditorInputManager : public cocos2d::CCNode, public cocos2d::CCTargetedTouchDelegate
 {
 private:
-    
     GameObject* _manipulatingObject;
+    bool _isMoving;
+    
     
 public:
     static LevelEditorInputManager* create();
