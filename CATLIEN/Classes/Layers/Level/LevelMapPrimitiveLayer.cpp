@@ -41,7 +41,7 @@ void LevelMapPrimitiveLayer::deselectElement(GameObject *gameObject)
 {
     if (_selections->containsObject(gameObject))
     {
-        _selections->addObject(gameObject);
+        _selections->removeObject(gameObject);
     }
 }
 

@@ -34,11 +34,12 @@ public:
     //for editor
     void addElement(GameObject* gameObject);
     void setElementPosition(GameObject* gameObject, cocos2d::CCPoint position);
+    void removeElement(GameObject* gameObject);
     void randomizeElementPosition(GameObject* gameObject);
     
     //method forward
     inline void selectElement(GameObject* gameObject) { _primitiveLayer->selectElement(gameObject);}
-    inline void deselectElement(GameObject* gameObject) { _primitiveLayer->selectElement(gameObject); }
+    inline void deselectElement(GameObject* gameObject) { _primitiveLayer->deselectElement(gameObject); }
     inline void deselectAll() { _primitiveLayer->deselectAll(); }
     inline cocos2d::CCArray* getSelections() {return _primitiveLayer->getSelections(); }
 };

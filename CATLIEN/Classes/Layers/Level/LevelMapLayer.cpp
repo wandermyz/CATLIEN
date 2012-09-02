@@ -78,6 +78,10 @@ void LevelMapLayer::randomizeElementPosition(GameObject *gameObject)
     gameObject->setPosition(ccp(x, y));
 }
 
-
-
+void LevelMapLayer::removeElement(GameObject *gameObject)
+{
+    deselectElement(gameObject);
+    removeChild(gameObject, true);
+    _gameObjects->removeObject(gameObject);
+}
 

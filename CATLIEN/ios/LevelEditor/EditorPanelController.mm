@@ -9,6 +9,7 @@
 #import "EditorPanelController.h"
 #import "TextFieldTableViewCell.h"
 #import "PlanetContentViewController.h"
+#import "../../Classes/GlobalEngine.h"
 
 @interface EditorPanelController ()
 
@@ -17,6 +18,7 @@
 @implementation EditorPanelController
 {
     GameObject* _gameObject;
+    UIButton* _deleteButton;
 }
 
 - (id)initWithGameObject:(GameObject *)gameObject
@@ -26,7 +28,6 @@
     if (self)
     {
         _gameObject = gameObject;
-        //self.tableView.scrollEnabled = NO;
     }
     
     return self;
@@ -47,7 +48,10 @@
 {
     [super viewDidUnload];
     // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
+    if (_deleteButton)
+    {
+        [_deleteButton release];
+    }
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -142,7 +146,43 @@
     _gameObject->setName([textField.text UTF8String]);
 }
 
-#pragma mark - Table view delegate
+- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
+{
+    if (section == 1)
+    {
+        if (_deleteButton == nil)
+        {
+            _deleteButton = [[UIButton buttonWithType:UIButtonTypeRoundedRect] retain];
+            [_deleteButton setTitle:@"Delete" forState:UIControlStateNormal];
+            _deleteButton.backgroundColor = [UIColor clearColor];
+            [_deleteButton addTarget:self action:@selector(onDeleteButtonClick:) forControlEvents:UIControlEventTouchUpInside];
+        }
+        
+        return _deleteButton;
+    }
+    else
+    {
+        return nil;
+    }
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
+{
+    if (section == 1)
+    {
+        return 45.0;
+    }
+    else
+    {
+        return 0;
+    }
+}
+
+- (void)onDeleteButtonClick:(id)sender
+{
+    GlobalEngine::sharedGlobalEngine()->getLevelMapLayer()->removeElement(_gameObject);
+    GlobalEngine::sharedGlobalEngine()->getLevelEditorHandler()->hideEditorPanel();
+}
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
