@@ -15,6 +15,7 @@
 class Planet : public GameObject
 {
 protected:
+    float _originalRadius;
     float _radius;
     float _density;
     std::string _texturePath;
@@ -29,6 +30,16 @@ public:
     virtual bool init();
     virtual bool containsPoint(const cocos2d::CCPoint& p);
     virtual void drawSelection();
+    
+    inline float getRadius() {return _radius;}
+    inline float getDensity() {return _density;}
+    inline std::string getTexturePath() {return _texturePath;}
+    inline int getFrameCount() {return _frameCount;}
+
+    void setRadius(float radius);
+    void setDensity(float density);
+    void setTexturePath(const char* texturePath);
+    void setFrameCount(int frameCount);
 };
 
 #endif /* defined(__CATLIEN__Planet__) */

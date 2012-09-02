@@ -7,7 +7,7 @@
             <key>planet_1.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{2,2},{490,493}}</string>
+                <string>{{2,486},{490,493}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -17,6 +17,32 @@
                 <key>sourceSize</key>
                 <string>{490,493}</string>
             </dict>
+            <key>planet_2.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{492,2},{490,482}}</string>
+                <key>offset</key>
+                <string>{0,0}</string>
+                <key>rotated</key>
+                <false/>
+                <key>sourceColorRect</key>
+                <string>{{0,0},{490,482}}</string>
+                <key>sourceSize</key>
+                <string>{490,482}</string>
+            </dict>
+            <key>planet_x.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{2,2},{488,480}}</string>
+                <key>offset</key>
+                <string>{0,0}</string>
+                <key>rotated</key>
+                <false/>
+                <key>sourceColorRect</key>
+                <string>{{0,0},{488,480}}</string>
+                <key>sourceSize</key>
+                <string>{488,480}</string>
+            </dict>
         </dict>
         <key>metadata</key>
         <dict>
@@ -25,9 +51,9 @@
             <key>realTextureFileName</key>
             <string>mockup.png</string>
             <key>size</key>
-            <string>{512,512}</string>
+            <string>{1024,1024}</string>
             <key>smartupdate</key>
-            <string>$TexturePacker:SmartUpdate:5cdb01c178eaa7bfb0de40c24903a0d4$</string>
+            <string>$TexturePacker:SmartUpdate:ffe4941d8377c3accd009ca34df021f9$</string>
             <key>textureFileName</key>
             <string>mockup.png</string>
         </dict>

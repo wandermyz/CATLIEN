@@ -8,6 +8,7 @@
 
 #import "PlanetContentViewController.h"
 #import "TextFieldTableViewCell.h"
+#import "SliderTableViewCell.h"
 
 @interface PlanetContentViewController ()
 
@@ -56,7 +57,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 2;
+    return 4;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -79,7 +80,7 @@
             cell = [tableView dequeueReusableCellWithIdentifier:@"Slider"];
             if (!cell)
             {
-                cell = [[[UITableViewCell alloc] init] autorelease];
+                cell = [[[SliderTableViewCell alloc] initWithDelegate:self resueIdentifier:@"Slider"] autorelease];
             }
             break;
     }
@@ -87,21 +88,73 @@
     switch (indexPath.row)
     {
         case PLANET_ROW_TEXTURE:
-            [(TextFieldTableViewCell*)cell setLabel:@"Texture"];
+        {
+            TextFieldTableViewCell* textFieldCell = (TextFieldTableViewCell*)cell;
+            textFieldCell.label = @"Texture";
+            textFieldCell.textField.text = [NSString stringWithUTF8String:_planet->getTexturePath().c_str()];
             break;
+        }
             
         case PLANET_ROW_FRAME_COUNT:
-            [(TextFieldTableViewCell*)cell setLabel:@"Frames"];
-            [[((TextFieldTableViewCell*)cell) getTextField] setKeyboardType:UIKeyboardTypeNumberPad];
-            break;            
+        {
+            TextFieldTableViewCell* textFieldCell = (TextFieldTableViewCell*)cell;
+            textFieldCell.label = @"Frames";
+            [textFieldCell.textField setKeyboardType:UIKeyboardTypeNumberPad];
+            textFieldCell.textField.text = [NSString stringWithFormat:@"%d", _planet->getFrameCount()];
+            break;
+        }
+            
+        case PLANET_ROW_RADIUS:
+        {
+            SliderTableViewCell* radiusCell = (SliderTableViewCell*) cell;
+            radiusCell.label = @"Radius";
+            radiusCell.slider.minimumValue = 20.0f;
+            radiusCell.slider.maximumValue = 1000.0f;
+            radiusCell.slider.value = _planet->getRadius();
+            break;
+        }
+            
+        case PLANET_ROW_DENSITY:
+        {
+            SliderTableViewCell* densityCell = (SliderTableViewCell*) cell;
+            densityCell.label=@"Density";
+            densityCell.slider.minimumValue = 0.2f;
+            densityCell.slider.maximumValue = 10.0f;
+            densityCell.slider.value = _planet->getDensity();
+            break;
+        }
     }
+    
+    cell.tag = indexPath.row;
     
     return cell;
 }
 
 - (void)textFieldDidEndEditing:(UITextField *)textField
 {
-    
+    switch (textField.tag)
+    {
+        case PLANET_ROW_TEXTURE:
+            _planet->setTexturePath([textField.text UTF8String]);
+            break;
+            
+        case PLANET_ROW_FRAME_COUNT:
+            _planet->setFrameCount([textField.text intValue]);
+            break;
+    }
+}
+
+- (void)slider:(UISlider *)slider valueChangedTo:(float)value
+{
+    switch (slider.tag) {
+        case PLANET_ROW_RADIUS:
+            _planet->setRadius(slider.value);
+            break;
+            
+        case PLANET_ROW_DENSITY:
+            _planet->setDensity(slider.value);
+            break;
+    }
 }
 
 

@@ -10,9 +10,9 @@
 
 @interface TextFieldTableViewCell : UITableViewCell
 - (id)initWithDelegate: (id<UITextFieldDelegate>) delegate reuseIdentifier: (NSString *)reuseIdentifier;
-- (NSString *) getTextFieldValue;
-- (void) setTextFieldValue: (NSString *) value;
-- (NSString *) getLabel;
-- (void) setLabel: (NSString *) value;
-- (UITextField* ) getTextField;
+
+@property (getter=label, setter=setLabel:, assign) NSString* label;
+@property (getter=tag, setter=setTag:, assign) NSInteger tag;
+@property (getter=textField, readonly) UITextField* textField;
+
 @end

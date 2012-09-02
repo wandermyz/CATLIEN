@@ -40,29 +40,30 @@
     // Configure the view for the selected state
 }
 
-- (NSString *) getTextFieldValue
+- (UITextField *) textField
 {
-    return _textField.text;
+    return _textField;
 }
 
-- (void) setTextFieldValue:(NSString *)value
+- (NSInteger) tag
 {
-    _textField.text = value;
+    return super.tag;
 }
 
-- (NSString *) getLabel
+- (void) setTag: (NSInteger) value
+{
+    super.tag = value;
+    _textField.tag = value;
+}
+
+- (NSString *)label
 {
     return self.textLabel.text;
 }
 
-- (void) setLabel:(NSString *)value
+- (void)setLabel: (NSString *)value
 {
     self.textLabel.text = value;
-}
-
-- (UITextField *) getTextField
-{
-    return _textField;
 }
 
 @end

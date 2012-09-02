@@ -204,8 +204,6 @@
 		C15DF19B15E19A38001BD63A /* GameObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C15DF19915E19A38001BD63A /* GameObject.cpp */; };
 		C15DF19E15E19FF3001BD63A /* Planet.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C15DF19C15E19FF3001BD63A /* Planet.cpp */; };
 		C15DF1A215E1A4AD001BD63A /* AnimationTexture.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C15DF1A015E1A4AD001BD63A /* AnimationTexture.cpp */; };
-		C15DF1A615E1B151001BD63A /* mockup.plist in Resources */ = {isa = PBXBuildFile; fileRef = C15DF1A415E1B151001BD63A /* mockup.plist */; };
-		C15DF1A715E1B151001BD63A /* mockup.png in Resources */ = {isa = PBXBuildFile; fileRef = C15DF1A515E1B151001BD63A /* mockup.png */; };
 		C15DF1DC15E8BE29001BD63A /* CCEditBox.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C15DF1D515E8BE29001BD63A /* CCEditBox.cpp */; };
 		C15DF1DD15E8BE29001BD63A /* CCEditBoxImplIOS.mm in Sources */ = {isa = PBXBuildFile; fileRef = C15DF1D915E8BE29001BD63A /* CCEditBoxImplIOS.mm */; };
 		C15DF1DE15E8BE29001BD63A /* EditBoxImplIOS.mm in Sources */ = {isa = PBXBuildFile; fileRef = C15DF1DB15E8BE29001BD63A /* EditBoxImplIOS.mm */; };
@@ -213,6 +211,9 @@
 		C15DF22815E980D0001BD63A /* CreatingMenuController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C15DF22615E980D0001BD63A /* CreatingMenuController.xib */; };
 		C1C6D0AC15EDE26F00CE9F6C /* EditorPanelController.mm in Sources */ = {isa = PBXBuildFile; fileRef = C1C6D0AA15EDE26F00CE9F6C /* EditorPanelController.mm */; };
 		C1C6D0AD15EDE26F00CE9F6C /* EditorPanelController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C1C6D0AB15EDE26F00CE9F6C /* EditorPanelController.xib */; };
+		C1CE78F215F2D31900D31C7A /* SliderTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C1CE78F115F2D31900D31C7A /* SliderTableViewCell.m */; };
+		C1CE78FA15F2E87900D31C7A /* mockup.png in Resources */ = {isa = PBXBuildFile; fileRef = C1CE78F815F2E87900D31C7A /* mockup.png */; };
+		C1CE78FB15F2E87900D31C7A /* mockup.plist in Resources */ = {isa = PBXBuildFile; fileRef = C1CE78F915F2E87900D31C7A /* mockup.plist */; };
 		C1DAD4A915F06CE000134284 /* TextFieldTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C1DAD4A815F06CE000134284 /* TextFieldTableViewCell.m */; };
 		C1FE2E2415F1B5830000F84F /* PlanetContentViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = C1FE2E2315F1B5830000F84F /* PlanetContentViewController.mm */; };
 /* End PBXBuildFile section */
@@ -638,8 +639,6 @@
 		C15DF19D15E19FF3001BD63A /* Planet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Planet.h; path = Classes/GameObjects/Planet.h; sourceTree = "<group>"; };
 		C15DF1A015E1A4AD001BD63A /* AnimationTexture.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = AnimationTexture.cpp; path = Classes/Graphics/AnimationTexture.cpp; sourceTree = "<group>"; };
 		C15DF1A115E1A4AD001BD63A /* AnimationTexture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AnimationTexture.h; path = Classes/Graphics/AnimationTexture.h; sourceTree = "<group>"; };
-		C15DF1A415E1B151001BD63A /* mockup.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = mockup.plist; path = Resources/SpriteSheets/mockup.plist; sourceTree = "<group>"; };
-		C15DF1A515E1B151001BD63A /* mockup.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = mockup.png; path = Resources/SpriteSheets/mockup.png; sourceTree = "<group>"; };
 		C15DF1D515E8BE29001BD63A /* CCEditBox.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CCEditBox.cpp; sourceTree = "<group>"; };
 		C15DF1D615E8BE29001BD63A /* CCEditBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCEditBox.h; sourceTree = "<group>"; };
 		C15DF1D715E8BE29001BD63A /* CCEditBoxImpl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCEditBoxImpl.h; sourceTree = "<group>"; };
@@ -653,6 +652,11 @@
 		C1C6D0A915EDE26F00CE9F6C /* EditorPanelController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EditorPanelController.h; path = ios/LevelEditor/EditorPanelController.h; sourceTree = "<group>"; };
 		C1C6D0AA15EDE26F00CE9F6C /* EditorPanelController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = EditorPanelController.mm; path = ios/LevelEditor/EditorPanelController.mm; sourceTree = "<group>"; };
 		C1C6D0AB15EDE26F00CE9F6C /* EditorPanelController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = EditorPanelController.xib; path = ios/LevelEditor/EditorPanelController.xib; sourceTree = "<group>"; };
+		C1CE78F015F2D31900D31C7A /* SliderTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SliderTableViewCell.h; path = ios/LevelEditor/SliderTableViewCell.h; sourceTree = "<group>"; };
+		C1CE78F115F2D31900D31C7A /* SliderTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SliderTableViewCell.m; path = ios/LevelEditor/SliderTableViewCell.m; sourceTree = "<group>"; };
+		C1CE78F415F2D79300D31C7A /* SliderDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = SliderDelegate.h; path = ios/LevelEditor/SliderDelegate.h; sourceTree = "<group>"; };
+		C1CE78F815F2E87900D31C7A /* mockup.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = mockup.png; path = Resources/SpriteSheets/mockup.png; sourceTree = "<group>"; };
+		C1CE78F915F2E87900D31C7A /* mockup.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = mockup.plist; path = Resources/SpriteSheets/mockup.plist; sourceTree = "<group>"; };
 		C1DAD4A715F06CE000134284 /* TextFieldTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TextFieldTableViewCell.h; path = ios/LevelEditor/TextFieldTableViewCell.h; sourceTree = "<group>"; };
 		C1DAD4A815F06CE000134284 /* TextFieldTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TextFieldTableViewCell.m; path = ios/LevelEditor/TextFieldTableViewCell.m; sourceTree = "<group>"; };
 		C1FE2E2215F1B5830000F84F /* PlanetContentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PlanetContentViewController.h; path = ios/LevelEditor/PlanetContentViewController.h; sourceTree = "<group>"; };
@@ -1556,8 +1560,8 @@
 		C15DF1A315E1B005001BD63A /* SpriteSheets */ = {
 			isa = PBXGroup;
 			children = (
-				C15DF1A415E1B151001BD63A /* mockup.plist */,
-				C15DF1A515E1B151001BD63A /* mockup.png */,
+				C1CE78F815F2E87900D31C7A /* mockup.png */,
+				C1CE78F915F2E87900D31C7A /* mockup.plist */,
 			);
 			name = SpriteSheets;
 			sourceTree = "<group>";
@@ -1592,8 +1596,11 @@
 				C1C6D0AB15EDE26F00CE9F6C /* EditorPanelController.xib */,
 				C1DAD4A715F06CE000134284 /* TextFieldTableViewCell.h */,
 				C1DAD4A815F06CE000134284 /* TextFieldTableViewCell.m */,
+				C1CE78F015F2D31900D31C7A /* SliderTableViewCell.h */,
+				C1CE78F115F2D31900D31C7A /* SliderTableViewCell.m */,
 				C1FE2E2215F1B5830000F84F /* PlanetContentViewController.h */,
 				C1FE2E2315F1B5830000F84F /* PlanetContentViewController.mm */,
+				C1CE78F415F2D79300D31C7A /* SliderDelegate.h */,
 			);
 			name = LevelEditor;
 			sourceTree = "<group>";
@@ -1670,10 +1677,10 @@
 				C15DEF2B15E07B4D001BD63A /* fps_images-hd.png in Resources */,
 				C15DEF2D15E07B4D001BD63A /* fps_images-ipadhd.png in Resources */,
 				C15DEFB515E07B4E001BD63A /* ChangeLog in Resources */,
-				C15DF1A615E1B151001BD63A /* mockup.plist in Resources */,
-				C15DF1A715E1B151001BD63A /* mockup.png in Resources */,
 				C15DF22815E980D0001BD63A /* CreatingMenuController.xib in Resources */,
 				C1C6D0AD15EDE26F00CE9F6C /* EditorPanelController.xib in Resources */,
+				C1CE78FA15F2E87900D31C7A /* mockup.png in Resources */,
+				C1CE78FB15F2E87900D31C7A /* mockup.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1865,6 +1872,7 @@
 				C1C6D0AC15EDE26F00CE9F6C /* EditorPanelController.mm in Sources */,
 				C1DAD4A915F06CE000134284 /* TextFieldTableViewCell.m in Sources */,
 				C1FE2E2415F1B5830000F84F /* PlanetContentViewController.mm in Sources */,
+				C1CE78F215F2D31900D31C7A /* SliderTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

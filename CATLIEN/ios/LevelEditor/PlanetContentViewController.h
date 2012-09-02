@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SliderDelegate.h"
 #include "../../Classes/GameObjects/Planet.h"
 
-@interface PlanetContentViewController : UITableViewController<UITextFieldDelegate>
+@interface PlanetContentViewController : UITableViewController<UITextFieldDelegate, SliderDelegate>
 - (id) initWithPlanet: (Planet *)planet;
 @end

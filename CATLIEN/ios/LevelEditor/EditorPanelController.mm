@@ -78,8 +78,8 @@
             cell = [[[TextFieldTableViewCell alloc] initWithDelegate:self reuseIdentifier:[CellIdentifiers objectAtIndex:indexPath.section]] autorelease];
         }
         
-        [(TextFieldTableViewCell*)cell setTextFieldValue:[NSString stringWithUTF8String:_gameObject->getName().c_str()]];
-        [(TextFieldTableViewCell*)cell setLabel:@"Name"];
+        ((TextFieldTableViewCell*)cell).textField.text = [NSString stringWithUTF8String:_gameObject->getName().c_str()];
+        ((TextFieldTableViewCell*)cell).label = @"Name";
         
     }
     else if (indexPath.section == 1)
