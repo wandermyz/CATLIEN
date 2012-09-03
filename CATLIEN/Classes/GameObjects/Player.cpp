@@ -41,8 +41,8 @@ void Player::createB2Body()
     b2FixtureDef fixtureDef;
     fixtureDef.shape = &shape;
     fixtureDef.density = 1.0;
-    fixtureDef.friction = 1.0; //TODO: TBD
+    fixtureDef.friction = 0.05f; //TODO: TBD
     _b2Body->CreateFixture(&fixtureDef);
     
-    _b2Body->SetLinearDamping(0.2f);
+    _b2Body->SetLinearDamping(1.0f);
 }

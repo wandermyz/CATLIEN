@@ -12,7 +12,7 @@
 #include "cocos2d.h"
 #include "GameObject.h"
 
-#define PLAYER_MOVE_SPEED 4.0f
+#define PLAYER_MOVE_FORCE 200.0f
 
 typedef enum
 {
