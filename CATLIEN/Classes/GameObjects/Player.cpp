@@ -19,7 +19,7 @@ bool Player::init()
     }
     setTexturePath("meow_1.png");
     setName("Player");
-    
+    _moveState = PlayerMoveStateStop;
     return true;
 }
 
@@ -30,6 +30,7 @@ void Player::createB2Body()
     b2BodyDef bodyDef;
     bodyDef.type = b2_dynamicBody;
     bodyDef.position.Set(p.x / PTM_RATIO, p.y / PTM_RATIO);
+    bodyDef.fixedRotation = true;
     
     _b2Body = GlobalEngine::sharedGlobalEngine()->getPhysicsWorld()->createBody(&bodyDef);
     
@@ -40,7 +41,8 @@ void Player::createB2Body()
     b2FixtureDef fixtureDef;
     fixtureDef.shape = &shape;
     fixtureDef.density = 1.0;
-    fixtureDef.friction = 1000; //TODO: TBD
+    fixtureDef.friction = 1.0; //TODO: TBD
     _b2Body->CreateFixture(&fixtureDef);
+    
+    _b2Body->SetLinearDamping(0.2f);
 }
-

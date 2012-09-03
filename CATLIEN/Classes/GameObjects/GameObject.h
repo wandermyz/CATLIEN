@@ -80,6 +80,8 @@ public:
     virtual void update(float deltaTime);
     
     void resetB2Body();
+    
+    inline b2Body* getB2Body() const {return _b2Body; }
 };
 
 #endif /* defined(__CATLIEN__GameObject__) */

@@ -66,6 +66,8 @@ public:
         return _physicsWorld;
     }
     
+    Player* getPlayer() const;
+    
     void switchToEditorMode();
     void switchToGameMode();
 };

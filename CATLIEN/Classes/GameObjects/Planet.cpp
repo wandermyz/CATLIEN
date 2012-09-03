@@ -19,6 +19,7 @@ bool Planet::init()
     }
     
     _radius = 0;
+    _density = 1;
     setTexturePath("planet_1.png");
     setFrameCount(0);
     
@@ -83,7 +84,12 @@ void Planet::createB2Body()
     b2FixtureDef fixtureDef;
     fixtureDef.shape = &shape;
     fixtureDef.density = _density;
-    fixtureDef.friction = 1000; //TODO: TBD
+    fixtureDef.friction = 1.0; //TODO: TBD
     _b2Body->CreateFixture(&fixtureDef);
+}
+
+float Planet::getB2Mass()
+{
+    return 4.1887902047863905 * pow(_radius / PTM_RATIO, 3) * _density;
 }
 

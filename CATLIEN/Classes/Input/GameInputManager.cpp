@@ -31,6 +31,23 @@ bool GameInputManager::ccTouchBegan(CCTouch* touch, CCEvent* evnet)
     _holdTime = 0;
     _state = GameInputStateHold;
     
+    CCSize winSize = CCDirector::sharedDirector()->getWinSize();
+    CCPoint pos = touch->getLocation();
+    
+    if (pos.y < winSize.height / 2)
+    {
+        if (pos.x < winSize.width / 3)
+        {
+            GlobalEngine::sharedGlobalEngine()->getPlayer()->setMoveState(PlayerMoveStateLeft);
+            CCLog("Move Left");
+        }
+        else if (pos.x > winSize.width * 2/3)
+        {
+            GlobalEngine::sharedGlobalEngine()->getPlayer()->setMoveState(PlayerMoveStateRight);
+            CCLog("Move Right");
+        }
+    }
+    
     return true;
 }
 
@@ -47,7 +64,14 @@ void GameInputManager::ccTouchEnded(CCTouch* touch, CCEvent* event)
         {
             GlobalEngine::sharedGlobalEngine()->switchToEditorMode();
             GlobalEngine::sharedGlobalEngine()->getLevelEditorHandler()->showCreatingMenu();
+            return;
         }
+    }
+    
+    if (GlobalEngine::sharedGlobalEngine()->getPlayer()->getMoveState() != PlayerMoveStateStop)
+    {
+        GlobalEngine::sharedGlobalEngine()->getPlayer()->setMoveState(PlayerMoveStateStop);
+        CCLog("Move Stop");
     }
 }
 

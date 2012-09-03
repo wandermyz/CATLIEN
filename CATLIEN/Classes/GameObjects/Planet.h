@@ -29,6 +29,7 @@ public:
     
     inline float getRadius() {return _radius;}
     inline float getDensity() {return _density;}
+    float getB2Mass();
     
     void setRadius(float radius);
     void setDensity(float density);

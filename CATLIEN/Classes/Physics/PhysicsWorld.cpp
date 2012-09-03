@@ -11,7 +11,7 @@
 bool PhysicsWorld::init()
 {
     b2Vec2 gravity;
-    gravity.Set(0, -10.0f);
+    gravity.Set(0, 0);
     _world = new b2World(gravity);
     _world->SetAllowSleeping(true);
     _world->SetContinuousPhysics(true);

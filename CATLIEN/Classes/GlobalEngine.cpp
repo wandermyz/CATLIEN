@@ -81,5 +81,12 @@ void GlobalEngine::switchInputManager(InputManagerBase* newInputManager)
     }
 }
 
-
-
+Player* GlobalEngine::getPlayer() const
+{
+    if (_levelMapLayer == NULL)
+    {
+        return NULL;
+    }
+    
+    return _levelMapLayer->getPlayer();
+}

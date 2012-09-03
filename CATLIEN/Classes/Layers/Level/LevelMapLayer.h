@@ -49,6 +49,8 @@ public:
     inline cocos2d::CCArray* getSelections() {return _primitiveLayer->getSelections(); }
     
     virtual void update(float deltaTime);
+    
+    inline Player* getPlayer() const {return _player;}
 };
 
 #endif /* defined(__CATLIEN__LevelMapLayer__) */
