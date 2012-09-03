@@ -10,7 +10,6 @@
 #define __CATLIEN__Planet__
 
 #include "GameObject.h"
-#include <string>
 
 class Planet : public GameObject
 {
@@ -18,10 +17,6 @@ protected:
     float _originalRadius;
     float _radius;
     float _density;
-    std::string _texturePath;
-    int _frameCount;
- 
-    cocos2d::CCNode* _texture;
     
 public:
     GAME_OBJECT_CREATE_FUNC(Planet);
@@ -30,16 +25,13 @@ public:
     virtual bool init();
     virtual bool containsPoint(const cocos2d::CCPoint& p);
     virtual void drawSelection();
+    virtual bool setTexturePath(const char *texturePath);
     
     inline float getRadius() {return _radius;}
     inline float getDensity() {return _density;}
-    inline std::string getTexturePath() {return _texturePath;}
-    inline int getFrameCount() {return _frameCount;}
-
+    
     void setRadius(float radius);
     void setDensity(float density);
-    void setTexturePath(const char* texturePath);
-    void setFrameCount(int frameCount);
 };
 
 #endif /* defined(__CATLIEN__Planet__) */

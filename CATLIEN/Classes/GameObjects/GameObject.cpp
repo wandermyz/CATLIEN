@@ -7,6 +7,8 @@
 //
 
 #include "GameObject.h"
+#include <string>
+using namespace std;
 USING_NS_CC;
 
 GameObject::GameObject() : _name("")
@@ -45,4 +47,40 @@ void GameObject::drawSelection()
         ccp(rect.getMaxX(), rect.getMaxY()),
         ccp(rect.getMinX(), rect.getMaxY()) };
     ccDrawPoly( vertices, 4, true);
+}
+
+bool GameObject::setTexturePath(const char *texturePath)
+{
+    if (_texturePath == string(texturePath))
+    {
+        return false;
+    }
+    
+    _texturePath = string(texturePath);
+    if (_texture != NULL)
+    {
+        removeChild(_texture, true);
+    }
+    
+    if (CCSpriteFrameCache::sharedSpriteFrameCache()->spriteFrameByName(_texturePath.c_str()) != NULL)
+    {
+        _texture = AnimationTexture::createWithSpriteFrameName(_texturePath.c_str());
+    }
+    else
+    {
+        _texture = AnimationTexture::createWithSpriteFrameName("planet_x.png");
+    }
+    
+    addChild(_texture);
+    _texture->setAnchorPoint(ccp(0,0));
+    
+    setContentSize(_texture->getContentSize());
+    setAnchorPoint(ccp(0.5, 0.5));
+    
+    return true;
+}
+
+void GameObject::setFrameCount(int frameCount)
+{
+    _frameCount = frameCount;
 }

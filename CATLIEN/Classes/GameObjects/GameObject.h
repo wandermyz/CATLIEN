@@ -10,6 +10,7 @@
 #define __CATLIEN__GameObject__
 
 #include "cocos2d.h"
+#include "../Graphics/AnimationTexture.h"
 #include <string>
 
 // for the subclass of GameObject, each has to implement the static "create" method
@@ -39,6 +40,9 @@ private:
     
 protected:
     std::string _name;
+    std::string _texturePath;
+    int _frameCount;
+    cocos2d::CCNode* _texture;
 
 public:
     GameObject();
@@ -54,6 +58,13 @@ public:
     
     inline std::string getName() const { return _name; }
     inline void setName(const std::string& name) {_name = name;}
+    
+    std::string getTexturePath() {return _texturePath;}
+    int getFrameCount() {return _frameCount;}
+    
+    //return true if the texture is changed. 
+    virtual bool setTexturePath(const char* texturePath);
+    virtual void setFrameCount(int frameCount);
 };
 
 #endif /* defined(__CATLIEN__GameObject__) */

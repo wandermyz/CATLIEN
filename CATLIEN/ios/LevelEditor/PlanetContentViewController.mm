@@ -135,8 +135,12 @@
     switch (textField.tag)
     {
         case PLANET_ROW_TEXTURE:
+        {
+            NSUInteger path[] = {0, PLANET_ROW_RADIUS};
             _planet->setTexturePath([textField.text UTF8String]);
+            ((SliderTableViewCell*)[self.tableView cellForRowAtIndexPath: [NSIndexPath indexPathWithIndexes:path length:2]]).slider.value = _planet->getRadius();
             break;
+        }
             
         case PLANET_ROW_FRAME_COUNT:
             _planet->setFrameCount([textField.text intValue]);

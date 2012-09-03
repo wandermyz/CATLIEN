@@ -7,8 +7,6 @@
 //
 
 #include "Planet.h"
-#include "../Graphics/AnimationTexture.h"
-using namespace std;
 USING_NS_CC;
 
 bool Planet::init()
@@ -18,6 +16,7 @@ bool Planet::init()
         return false;
     }
     
+    _radius = 0;
     setTexturePath("planet_1.png");
     setFrameCount(0);
     
@@ -48,34 +47,18 @@ void Planet::setDensity(float density)
     _density = density;
 }
 
-void Planet::setTexturePath(const char *texturePath)
+bool Planet::setTexturePath(const char *texturePath)
 {
-    _texturePath = string(texturePath);
-    if (_texture != NULL)
+    if(GameObject::setTexturePath(texturePath))
     {
-        removeChild(_texture, true);
-    }
-    
-    if (CCSpriteFrameCache::sharedSpriteFrameCache()->spriteFrameByName(_texturePath.c_str()) != NULL)
-    {
-        _texture = AnimationTexture::createWithSpriteFrameName(_texturePath.c_str());
+        _originalRadius = std::max(getContentSize().width, getContentSize().height) / 2;
+        setRadius(_radius == 0 ? _originalRadius : _radius);
+        return true;
     }
     else
     {
-        _texture = AnimationTexture::createWithSpriteFrameName("planet_x.png");
+        return false;
     }
     
-    addChild(_texture);
-    _texture->setAnchorPoint(ccp(0,0));
-    
-    setContentSize(_texture->getContentSize());
-    setAnchorPoint(ccp(0.5, 0.5));
-    
-    _originalRadius = std::max(getContentSize().width, getContentSize().height) / 2;
-    setRadius(_originalRadius);
 }
 
-void Planet::setFrameCount(int frameCount)
-{
-    _frameCount = frameCount;
-}
