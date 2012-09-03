@@ -4,10 +4,23 @@
     <dict>
         <key>frames</key>
         <dict>
+            <key>meow_1.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{2,2},{100,80}}</string>
+                <key>offset</key>
+                <string>{0,0}</string>
+                <key>rotated</key>
+                <false/>
+                <key>sourceColorRect</key>
+                <string>{{0,0},{100,80}}</string>
+                <key>sourceSize</key>
+                <string>{100,80}</string>
+            </dict>
             <key>planet_1.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{2,486},{490,493}}</string>
+                <string>{{494,484},{490,493}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -20,7 +33,7 @@
             <key>planet_2.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{492,2},{490,482}}</string>
+                <string>{{2,484},{490,482}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -33,7 +46,7 @@
             <key>planet_x.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{2,2},{488,480}}</string>
+                <string>{{104,2},{488,480}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -53,7 +66,7 @@
             <key>size</key>
             <string>{1024,1024}</string>
             <key>smartupdate</key>
-            <string>$TexturePacker:SmartUpdate:ffe4941d8377c3accd009ca34df021f9$</string>
+            <string>$TexturePacker:SmartUpdate:67385fa14abf007d6a997d4a56b99115$</string>
             <key>textureFileName</key>
             <string>mockup.png</string>
         </dict>

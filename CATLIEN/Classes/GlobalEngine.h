@@ -12,6 +12,8 @@
 #include "LevelEditor/LevelEditorHandlerBase.h"
 #include "Layers/Level/LevelMapLayer.h"
 #include "Input/InputManagerBase.cpp"
+#include "GameObjects/Player.h"
+#include "Physics/PhysicsWorld.h"
 
 typedef enum
 {
@@ -27,7 +29,8 @@ private:
     LevelMapLayer* _levelMapLayer;
     GameMode _gameMode;
     InputManagerBase* _inputManager;
-    
+    PhysicsWorld* _physicsWorld;
+        
     void switchInputManager(InputManagerBase* inputManager);
 public:
     static GlobalEngine* sharedGlobalEngine();
@@ -56,6 +59,11 @@ public:
     inline GameMode getGameMode() const
     {
         return _gameMode;
+    }
+    
+    inline PhysicsWorld* getPhysicsWorld() const
+    {
+        return _physicsWorld;
     }
     
     void switchToEditorMode();

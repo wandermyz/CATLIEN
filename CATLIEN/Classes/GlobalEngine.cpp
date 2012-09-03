@@ -13,7 +13,7 @@ USING_NS_CC;
 
 static GlobalEngine _sharedGlobalEngine;
 
-GlobalEngine::GlobalEngine():_levelEditorHandler(NULL), _inputManager(NULL)
+GlobalEngine::GlobalEngine():_levelEditorHandler(NULL), _inputManager(NULL), _physicsWorld(NULL)
 {
     _gameMode = GameModeLevelEditor;
 }
@@ -44,11 +44,15 @@ void GlobalEngine::switchToGameMode()
 void GlobalEngine::enterLevelMapLayer(LevelMapLayer *levelMapLayer)
 {
     _levelMapLayer = levelMapLayer;
+    _physicsWorld = PhysicsWorld::create();
+    _physicsWorld->retain();
+    
     switchToGameMode();
 }
 
 void GlobalEngine::leaveLevelMapLayer()
 {
+    _physicsWorld->release();
     _levelMapLayer = NULL;
     _gameMode = GameModeUnknown;
     switchInputManager(NULL);

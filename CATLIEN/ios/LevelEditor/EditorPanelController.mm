@@ -89,15 +89,22 @@
     else if (indexPath.section == 1)
     {
         if (cell == nil) {
-            NSString* type = [NSString stringWithUTF8String:_gameObject->getType().c_str()];
             cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:[CellIdentifiers objectAtIndex:indexPath.section]] autorelease];
             
-            if ([type isEqualToString:@"Planet"])
+            switch (_gameObject->getType())
             {
-                PlanetContentViewController* subview = [[PlanetContentViewController alloc] initWithPlanet:(Planet *)_gameObject];
-                [cell addSubview:subview.view];
+                case GameObjectTypePlanet:
+                {
+                    PlanetContentViewController* subview = [[PlanetContentViewController alloc] initWithPlanet:(Planet *)_gameObject];
+                    [cell addSubview:subview.view];
+                    break;
+                }
+                    
+                default:
+                {
+                    break;
+                }
             }
-                
         }
     }
 
@@ -108,15 +115,17 @@
 {
     if (indexPath.section == 1)
     {
-        NSString* type = [NSString stringWithUTF8String:_gameObject->getType().c_str()];
         NSInteger rowNum;
-        if ([type isEqualToString:@"Planet"])
+        
+        switch (_gameObject->getType())
         {
-            rowNum = 4;
-        }
-        else
-        {
-            rowNum = 10;
+            case GameObjectTypePlanet:
+                rowNum = 4;
+                break;
+                
+            default:
+                rowNum = 10;
+                break;
         }
         
         return tableView.rowHeight * rowNum;

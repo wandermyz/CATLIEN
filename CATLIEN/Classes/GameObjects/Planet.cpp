@@ -7,6 +7,8 @@
 //
 
 #include "Planet.h"
+#include "../Physics/PhysicsWorld.h"
+#include "../GlobalEngine.h"
 USING_NS_CC;
 
 bool Planet::init()
@@ -40,11 +42,13 @@ void Planet::setRadius(float radius)
 {
     _radius = radius;
     setScale(_radius / _originalRadius);
+    resetB2Body();
 }
 
 void Planet::setDensity(float density)
 {
     _density = density;
+    resetB2Body();
 }
 
 bool Planet::setTexturePath(const char *texturePath)
@@ -60,5 +64,26 @@ bool Planet::setTexturePath(const char *texturePath)
         return false;
     }
     
+}
+
+void Planet::createB2Body()
+{
+    CCPoint p = getPosition();
+    
+    b2BodyDef bodyDef;
+    bodyDef.type = b2_staticBody;
+    bodyDef.position.Set(p.x / PTM_RATIO, p.y / PTM_RATIO);
+    
+    _b2Body = GlobalEngine::sharedGlobalEngine()->getPhysicsWorld()->createBody(&bodyDef);
+    
+    b2CircleShape shape;
+    shape.m_p.Set(0, 0);
+    shape.m_radius = _radius / PTM_RATIO;
+    
+    b2FixtureDef fixtureDef;
+    fixtureDef.shape = &shape;
+    fixtureDef.density = _density;
+    fixtureDef.friction = 1000; //TODO: TBD
+    _b2Body->CreateFixture(&fixtureDef);
 }
 

@@ -11,17 +11,22 @@
 
 #include "cocos2d.h"
 #include "../../GameObjects/GameObject.h"
+#include "../../GameObjects/Player.h"
 #include "LevelMapPrimitiveLayer.h"
 
 #define LEVEL_MAP_LAYER_PRIMITIVE_Z 100
 #define LEVEL_MAP_LAYER_ELEMENTS_Z 0
+#define LEVEL_MAP_LAYER_PLAYER_Z 10
 
 class LevelMapLayer : public cocos2d::CCLayer
 {
 private:
     cocos2d::CCArray* _gameObjects;
+    cocos2d::CCArray* _planets;
+    Player* _player;
     LevelMapPrimitiveLayer* _primitiveLayer;
     
+    void addPlayer();
 public:
     LAYER_CREATE_FUNC(LevelMapLayer);
     
@@ -42,6 +47,8 @@ public:
     inline void deselectElement(GameObject* gameObject) { _primitiveLayer->deselectElement(gameObject); }
     inline void deselectAll() { _primitiveLayer->deselectAll(); }
     inline cocos2d::CCArray* getSelections() {return _primitiveLayer->getSelections(); }
+    
+    virtual void update(float deltaTime);
 };
 
 #endif /* defined(__CATLIEN__LevelMapLayer__) */

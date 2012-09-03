@@ -10,11 +10,19 @@
 #define __CATLIEN__GameObject__
 
 #include "cocos2d.h"
+#include "Box2D.h"
 #include "../Graphics/AnimationTexture.h"
 #include <string>
 
-// for the subclass of GameObject, each has to implement the static "create" method
+// GameObject types
+typedef enum
+{
+    GameObjectTypeNone,
+    GameObjectTypePlanet,
+    GameObjectTypePlayer
+} GameObjectType;
 
+// for the subclass of GameObject, each has to implement the static "create" method
 #define GAME_OBJECT_CREATE_FUNC(clz) \
 static clz* create() \
 { \
@@ -32,7 +40,7 @@ return NULL; \
 } \
 }
 
-#define GAME_OBJECT_TYPE_FUNC(type) virtual std::string getType() const {return (type);}
+#define GAME_OBJECT_TYPE_FUNC(type) virtual GameObjectType getType() const {return (type);}
 
 class GameObject : public cocos2d::CCNode
 {
@@ -43,6 +51,7 @@ protected:
     std::string _texturePath;
     int _frameCount;
     cocos2d::CCNode* _texture;
+    b2Body* _b2Body;
 
 public:
     GameObject();
@@ -54,7 +63,7 @@ public:
     virtual bool containsPoint(const cocos2d::CCPoint& p);
     virtual void drawSelection();
     
-    virtual std::string getType() const = 0;
+    virtual GameObjectType getType() const = 0;
     
     inline std::string getName() const { return _name; }
     inline void setName(const std::string& name) {_name = name;}
@@ -65,6 +74,12 @@ public:
     //return true if the texture is changed. 
     virtual bool setTexturePath(const char* texturePath);
     virtual void setFrameCount(int frameCount);
+    
+    virtual void createB2Body();
+    virtual void destroyB2Body();
+    virtual void update(float deltaTime);
+    
+    void resetB2Body();
 };
 
 #endif /* defined(__CATLIEN__GameObject__) */

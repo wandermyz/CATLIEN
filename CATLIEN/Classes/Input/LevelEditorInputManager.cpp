@@ -79,6 +79,10 @@ void LevelEditorInputManager::ccTouchEnded(CCTouch* touch, CCEvent* event)
         {
             GlobalEngine::sharedGlobalEngine()->getLevelEditorHandler()->showEditorPanel(_manipulatingObject);
         }
+        else if (_state == LevelEditorInputStateMoving)
+        {
+            _manipulatingObject->resetB2Body();
+        }
         
         _manipulatingObject = NULL;
     }

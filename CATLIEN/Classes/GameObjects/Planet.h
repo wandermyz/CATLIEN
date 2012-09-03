@@ -20,7 +20,7 @@ protected:
     
 public:
     GAME_OBJECT_CREATE_FUNC(Planet);
-    GAME_OBJECT_TYPE_FUNC("Planet");
+    GAME_OBJECT_TYPE_FUNC(GameObjectTypePlanet);
     
     virtual bool init();
     virtual bool containsPoint(const cocos2d::CCPoint& p);
@@ -32,6 +32,8 @@ public:
     
     void setRadius(float radius);
     void setDensity(float density);
+    
+    virtual void createB2Body();
 };
 
 #endif /* defined(__CATLIEN__Planet__) */

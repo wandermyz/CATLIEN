@@ -27,9 +27,14 @@ bool LevelMapLayer::init()
     _gameObjects = CCArray::create();
     _gameObjects->retain();
     
+    _planets = CCArray::create();
+    _planets->retain();
+    
     _primitiveLayer = LevelMapPrimitiveLayer::create();
     addChild(_primitiveLayer, LEVEL_MAP_LAYER_PRIMITIVE_Z);
     
+    
+    _player = NULL;
     return true;
 }
 
@@ -37,12 +42,20 @@ void LevelMapLayer::onEnter()
 {
     CCLayer::onEnter();
     GlobalEngine::sharedGlobalEngine()->enterLevelMapLayer(this);
+    scheduleUpdate();
+    
     GlobalEngine::sharedGlobalEngine()->switchToEditorMode();
+    addPlayer();
 }
 
 void LevelMapLayer::onExit()
 {
+    unscheduleUpdate();
+    
     GlobalEngine::sharedGlobalEngine()->leaveLevelMapLayer();
+    
+    _planets->removeAllObjects();
+    _planets->release();
     
     _gameObjects->removeAllObjects();
     _gameObjects->release();
@@ -50,11 +63,34 @@ void LevelMapLayer::onExit()
     CCLayer::onExit();
 }
 
+void LevelMapLayer::addPlayer()
+{
+    //add player randomly
+    CCAssert(_player == NULL, "Cannot add multiple players. ");    
+    _player = Player::create();
+    addChild(_player, LEVEL_MAP_LAYER_PLAYER_Z);
+    _gameObjects->addObject(_player);
+    randomizeElementPosition(_player);
+}
+
 void LevelMapLayer::addElement(GameObject *gameObject)
 {
     addChild(gameObject, LEVEL_MAP_LAYER_ELEMENTS_Z);
     _gameObjects->addObject(gameObject);
+    
+    //handle special objects
+    switch (gameObject->getType())
+    {
+        case GameObjectTypePlanet:
+            _planets->addObject(gameObject);
+            break;
+            
+        default:
+            break;
+    }
 }
+
+
 
 void LevelMapLayer::setElementPosition(GameObject *gameObject, cocos2d::CCPoint position)
 {
@@ -81,6 +117,29 @@ void LevelMapLayer::removeElement(GameObject *gameObject)
 {
     deselectElement(gameObject);
     removeChild(gameObject, true);
+    
+    //handle special objects
+    switch (gameObject->getType())
+    {
+        case GameObjectTypePlanet:
+            _planets->removeObject(gameObject);
+            break;
+            
+        case GameObjectTypePlayer:
+            _player = NULL;
+            break;
+            
+        default:
+            break;
+    }
+    
     _gameObjects->removeObject(gameObject);
 }
 
+void LevelMapLayer::update(float deltaTime)
+{
+    if (GlobalEngine::sharedGlobalEngine()->getGameMode() == GameModeLevel)
+    {
+        GlobalEngine::sharedGlobalEngine()->getPhysicsWorld()->step(deltaTime);
+    }
+}
