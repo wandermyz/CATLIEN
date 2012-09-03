@@ -9,23 +9,35 @@
 #ifndef __CATLIEN__LevelEditorInputManager__
 #define __CATLIEN__LevelEditorInputManager__
 
-#include "cocos2d.h"
+#include "InputManagerBase.h"
 #include "../GameObjects/GameObject.h"
 
-class LevelEditorInputManager : public cocos2d::CCNode, public cocos2d::CCTargetedTouchDelegate
+typedef enum
+{
+    LevelEditorInputStateNone,
+    LevelEditorInputStateHold,
+    LevelEditorInputStateMoving,
+} LevelEditorInputState;
+
+class LevelEditorInputManager : public InputManagerBase
 {
 private:
     GameObject* _manipulatingObject;
-    bool _isMoving;
-    
+    LevelEditorInputState _state;
+    float _holdTime;
     
 public:
-    static LevelEditorInputManager* create();
+    INPUT_MANAGER_CREATE_FUNC(LevelEditorInputManager);
     
     virtual bool init();
     virtual bool ccTouchBegan(cocos2d::CCTouch* touch, cocos2d::CCEvent* event);
     virtual void ccTouchMoved(cocos2d::CCTouch* touch, cocos2d::CCEvent* event);
     virtual void ccTouchEnded(cocos2d::CCTouch* touch, cocos2d::CCEvent* event);
+    
+    virtual void onEnter();
+    virtual void onExit();
+    virtual void update(float deltaTime);
+
 };
 
 #endif /* defined(__CATLIEN__LevelEditorInputManager__) */

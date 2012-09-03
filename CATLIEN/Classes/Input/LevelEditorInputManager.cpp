@@ -11,22 +11,13 @@
 
 USING_NS_CC;
 
-LevelEditorInputManager* LevelEditorInputManager::create()
-{
-    LevelEditorInputManager* res = new LevelEditorInputManager();
-    if (res && res->init())
-    {
-        res->autorelease();
-        return res;
-    }
-    
-    CC_SAFE_DELETE(res);
-    return NULL;
-}
+#define EXIT_EDITOR_HOLD_TIME 1.0f
 
 bool LevelEditorInputManager::init()
 {
     _manipulatingObject = NULL;
+    _holdTime = 0;
+    _state = LevelEditorInputStateNone;
     return true;
 }
 
@@ -34,8 +25,12 @@ bool LevelEditorInputManager::ccTouchBegan(CCTouch* touch, CCEvent* evnet)
 {
     if (GlobalEngine::sharedGlobalEngine()->getGameMode() != GameModeLevelEditor)
     {
+        CCLOGERROR("LevelEditorInputManager triggered in game mode %d", GlobalEngine::sharedGlobalEngine()->getGameMode());
         return false;
     }
+    
+    _state = LevelEditorInputStateHold;
+    _holdTime = 0;
     
     LevelMapLayer* levelMapLayer = GlobalEngine::sharedGlobalEngine()->getLevelMapLayer();
     
@@ -57,6 +52,7 @@ bool LevelEditorInputManager::ccTouchBegan(CCTouch* touch, CCEvent* evnet)
         }
     }
     
+    
     return true;
 }
 
@@ -66,16 +62,20 @@ void LevelEditorInputManager::ccTouchMoved(CCTouch* touch, CCEvent* event)
     {
          _manipulatingObject->setPosition(ccpAdd(_manipulatingObject->getPosition(), touch->getDelta()));
     }
-    _isMoving = true;
+    _state = LevelEditorInputStateMoving;
 }
 
 void LevelEditorInputManager::ccTouchEnded(CCTouch* touch, CCEvent* event)
 {
     LevelMapLayer* levelMapLayer = GlobalEngine::sharedGlobalEngine()->getLevelMapLayer();
     
-    if (_manipulatingObject != NULL)
+    if (_state == LevelEditorInputStateHold && _holdTime > EXIT_EDITOR_HOLD_TIME)
     {
-        if (!_isMoving)
+        GlobalEngine::sharedGlobalEngine()->switchToGameMode();
+    }
+    else if (_manipulatingObject != NULL)
+    {
+        if (_state == LevelEditorInputStateHold)
         {
             GlobalEngine::sharedGlobalEngine()->getLevelEditorHandler()->showEditorPanel(_manipulatingObject);
         }
@@ -91,8 +91,27 @@ void LevelEditorInputManager::ccTouchEnded(CCTouch* touch, CCEvent* event)
         GlobalEngine::sharedGlobalEngine()->getLevelEditorHandler()->showCreatingMenu();
     }
     
-    _isMoving = false;
+    _state = LevelEditorInputStateNone;
 }
 
+void LevelEditorInputManager::onEnter()
+{
+    CCNode::onEnter();
+    scheduleUpdate();
+}
+
+void LevelEditorInputManager::onExit()
+{
+    unscheduleUpdate();
+    CCNode::onExit();
+}
+
+void LevelEditorInputManager::update(float deltaTime)
+{
+    if (_state == LevelEditorInputStateHold)
+    {
+        _holdTime += deltaTime;
+    }
+}
 
 

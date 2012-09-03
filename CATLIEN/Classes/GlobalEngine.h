@@ -10,12 +10,8 @@
 #define __CATLIEN__GlobalEngine__
 
 #include "LevelEditor/LevelEditorHandlerBase.h"
-#include "Input/LevelEditorInputManager.h"
 #include "Layers/Level/LevelMapLayer.h"
-
-#ifndef NULL
-#define NULL 0
-#endif
+#include "Input/InputManagerBase.cpp"
 
 typedef enum
 {
@@ -30,8 +26,9 @@ private:
     LevelEditorHandlerBase* _levelEditorHandler;
     LevelMapLayer* _levelMapLayer;
     GameMode _gameMode;
-    LevelEditorInputManager* _levelEditorInputManager;
+    InputManagerBase* _inputManager;
     
+    void switchInputManager(InputManagerBase* inputManager);
 public:
     static GlobalEngine* sharedGlobalEngine();
     
@@ -48,10 +45,8 @@ public:
         return _levelEditorHandler;
     }
     
-    inline void setLevelMapLayer(LevelMapLayer* levelMapLayer)
-    {
-        _levelMapLayer = levelMapLayer;
-    }
+    void enterLevelMapLayer(LevelMapLayer* levelMapLayer);
+    void leaveLevelMapLayer();
     
     inline LevelMapLayer* getLevelMapLayer() const
     {
@@ -63,7 +58,8 @@ public:
         return _gameMode;
     }
     
-    LevelEditorInputManager* getLevelEditorInputManager();
+    void switchToEditorMode();
+    void switchToGameMode();
 };
 
 #endif /* defined(__CATLIEN__GlobalEngine__) */

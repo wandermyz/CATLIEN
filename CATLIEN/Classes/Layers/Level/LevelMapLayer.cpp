@@ -36,14 +36,13 @@ bool LevelMapLayer::init()
 void LevelMapLayer::onEnter()
 {
     CCLayer::onEnter();
-    GlobalEngine::sharedGlobalEngine()->setLevelMapLayer(this);
-    
-    CCDirector::sharedDirector()->getTouchDispatcher()->addTargetedDelegate(GlobalEngine::sharedGlobalEngine()->getLevelEditorInputManager(), 0, true);    
+    GlobalEngine::sharedGlobalEngine()->enterLevelMapLayer(this);
+    GlobalEngine::sharedGlobalEngine()->switchToEditorMode();
 }
 
 void LevelMapLayer::onExit()
 {
-    CCDirector::sharedDirector()->getTouchDispatcher()->removeDelegate(GlobalEngine::sharedGlobalEngine()->getLevelEditorInputManager());
+    GlobalEngine::sharedGlobalEngine()->leaveLevelMapLayer();
     
     _gameObjects->removeAllObjects();
     _gameObjects->release();

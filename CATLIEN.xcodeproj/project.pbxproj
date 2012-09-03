@@ -209,6 +209,8 @@
 		C15DF1DE15E8BE29001BD63A /* EditBoxImplIOS.mm in Sources */ = {isa = PBXBuildFile; fileRef = C15DF1DB15E8BE29001BD63A /* EditBoxImplIOS.mm */; };
 		C15DF22715E980D0001BD63A /* CreatingMenuController.mm in Sources */ = {isa = PBXBuildFile; fileRef = C15DF22515E980CF001BD63A /* CreatingMenuController.mm */; };
 		C15DF22815E980D0001BD63A /* CreatingMenuController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C15DF22615E980D0001BD63A /* CreatingMenuController.xib */; };
+		C165277715F4944D00F7C0D8 /* InputManagerBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C165277515F4944D00F7C0D8 /* InputManagerBase.cpp */; };
+		C183453D15F47C5F00E49B45 /* GameInputManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C183453B15F47C5E00E49B45 /* GameInputManager.cpp */; };
 		C1C6D0AC15EDE26F00CE9F6C /* EditorPanelController.mm in Sources */ = {isa = PBXBuildFile; fileRef = C1C6D0AA15EDE26F00CE9F6C /* EditorPanelController.mm */; };
 		C1C6D0AD15EDE26F00CE9F6C /* EditorPanelController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C1C6D0AB15EDE26F00CE9F6C /* EditorPanelController.xib */; };
 		C1CE78F215F2D31900D31C7A /* SliderTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C1CE78F115F2D31900D31C7A /* SliderTableViewCell.m */; };
@@ -649,6 +651,10 @@
 		C15DF22415E980CF001BD63A /* CreatingMenuController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CreatingMenuController.h; path = ios/LevelEditor/CreatingMenuController.h; sourceTree = "<group>"; };
 		C15DF22515E980CF001BD63A /* CreatingMenuController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = CreatingMenuController.mm; path = ios/LevelEditor/CreatingMenuController.mm; sourceTree = "<group>"; };
 		C15DF22615E980D0001BD63A /* CreatingMenuController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CreatingMenuController.xib; path = ios/LevelEditor/CreatingMenuController.xib; sourceTree = "<group>"; };
+		C165277515F4944D00F7C0D8 /* InputManagerBase.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = InputManagerBase.cpp; path = Classes/Input/InputManagerBase.cpp; sourceTree = "<group>"; };
+		C165277615F4944D00F7C0D8 /* InputManagerBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = InputManagerBase.h; path = Classes/Input/InputManagerBase.h; sourceTree = "<group>"; };
+		C183453B15F47C5E00E49B45 /* GameInputManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GameInputManager.cpp; path = Classes/Input/GameInputManager.cpp; sourceTree = "<group>"; };
+		C183453C15F47C5F00E49B45 /* GameInputManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameInputManager.h; path = Classes/Input/GameInputManager.h; sourceTree = "<group>"; };
 		C1C6D0A915EDE26F00CE9F6C /* EditorPanelController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EditorPanelController.h; path = ios/LevelEditor/EditorPanelController.h; sourceTree = "<group>"; };
 		C1C6D0AA15EDE26F00CE9F6C /* EditorPanelController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = EditorPanelController.mm; path = ios/LevelEditor/EditorPanelController.mm; sourceTree = "<group>"; };
 		C1C6D0AB15EDE26F00CE9F6C /* EditorPanelController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = EditorPanelController.xib; path = ios/LevelEditor/EditorPanelController.xib; sourceTree = "<group>"; };
@@ -695,6 +701,10 @@
 			children = (
 				C1236CC615EB0C71008F5AED /* LevelEditorInputManager.cpp */,
 				C1236CC715EB0C71008F5AED /* LevelEditorInputManager.h */,
+				C183453B15F47C5E00E49B45 /* GameInputManager.cpp */,
+				C183453C15F47C5F00E49B45 /* GameInputManager.h */,
+				C165277515F4944D00F7C0D8 /* InputManagerBase.cpp */,
+				C165277615F4944D00F7C0D8 /* InputManagerBase.h */,
 			);
 			name = Input;
 			sourceTree = "<group>";
@@ -1873,6 +1883,8 @@
 				C1DAD4A915F06CE000134284 /* TextFieldTableViewCell.m in Sources */,
 				C1FE2E2415F1B5830000F84F /* PlanetContentViewController.mm in Sources */,
 				C1CE78F215F2D31900D31C7A /* SliderTableViewCell.m in Sources */,
+				C183453D15F47C5F00E49B45 /* GameInputManager.cpp in Sources */,
+				C165277715F4944D00F7C0D8 /* InputManagerBase.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
