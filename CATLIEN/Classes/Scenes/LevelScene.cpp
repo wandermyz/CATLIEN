@@ -18,6 +18,9 @@ bool LevelScene::init() {
     levelMapLayer = LevelMapLayer::create();
     addChild(levelMapLayer);
     
+    levelInfoLayer = LevelInfoLayer::create();
+    addChild(levelInfoLayer);
+    
     return true;
 }
 

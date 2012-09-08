@@ -60,12 +60,14 @@ void GameInputManager::ccTouchEnded(CCTouch* touch, CCEvent* event)
 {
     if (_state == GameInputStateHold && _holdTime > ENTER_EDITOR_HOLD_TIME)
     {
+        //use toggle button instead
+        /*
         if (touch->getLocation().x < 100 && touch->getLocation().y > CCDirector::sharedDirector()->getWinSize().height - 100)
         {
             GlobalEngine::sharedGlobalEngine()->switchToEditorMode();
             GlobalEngine::sharedGlobalEngine()->getLevelEditorHandler()->showCreatingMenu();
             return;
-        }
+        }*/
     }
     
     if (GlobalEngine::sharedGlobalEngine()->getPlayer()->getMoveState() != PlayerMoveStateStop)

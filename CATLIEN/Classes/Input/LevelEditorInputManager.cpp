@@ -71,7 +71,8 @@ void LevelEditorInputManager::ccTouchEnded(CCTouch* touch, CCEvent* event)
     
     if (_state == LevelEditorInputStateHold && _holdTime > EXIT_EDITOR_HOLD_TIME)
     {
-        GlobalEngine::sharedGlobalEngine()->switchToGameMode();
+        //use toggle button instead
+        //GlobalEngine::sharedGlobalEngine()->switchToGameMode();
     }
     else if (_manipulatingObject != NULL)
     {

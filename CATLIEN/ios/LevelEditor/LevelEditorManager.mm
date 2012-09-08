@@ -10,7 +10,7 @@
 #import "AppController.h"
 #import "CreatingMenuController.h"
 #import "EditorPanelController.h"
-
+#include "cocos2d.h"
 
 @implementation LevelEditorManager
 {
@@ -71,7 +71,7 @@ static LevelEditorManager* _sharedLevelEditorManager = nil;
     _editorPanelPopover.delegate = self;
     
     cocos2d::CCRect rect = gameObject->boundingBox();
-    [_editorPanelPopover presentPopoverFromRect:CGRectMake(rect.origin.x, rect.origin.y, rect.size.width, rect.size.height)
+    [_editorPanelPopover presentPopoverFromRect:CGRectMake(rect.origin.x, cocos2d::CCDirector::sharedDirector()->getWinSize().height - rect.origin.y - rect.size.height, rect.size.width, rect.size.height)
                                          inView:_parentView
                        permittedArrowDirections:UIPopoverArrowDirectionAny
                                        animated:YES];

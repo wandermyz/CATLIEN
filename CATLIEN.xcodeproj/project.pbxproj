@@ -209,6 +209,7 @@
 		C15DF1DE15E8BE29001BD63A /* EditBoxImplIOS.mm in Sources */ = {isa = PBXBuildFile; fileRef = C15DF1DB15E8BE29001BD63A /* EditBoxImplIOS.mm */; };
 		C15DF22715E980D0001BD63A /* CreatingMenuController.mm in Sources */ = {isa = PBXBuildFile; fileRef = C15DF22515E980CF001BD63A /* CreatingMenuController.mm */; };
 		C15DF22815E980D0001BD63A /* CreatingMenuController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C15DF22615E980D0001BD63A /* CreatingMenuController.xib */; };
+		C15FC4F015FBEB5500C3484D /* LevelInfoLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C15FC4EE15FBEB5500C3484D /* LevelInfoLayer.cpp */; };
 		C165277715F4944D00F7C0D8 /* InputManagerBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C165277515F4944D00F7C0D8 /* InputManagerBase.cpp */; };
 		C165277B15F538BF00F7C0D8 /* Player.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C165277915F538BF00F7C0D8 /* Player.cpp */; };
 		C16527E315F5424800F7C0D8 /* b2BroadPhase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C165278315F5424800F7C0D8 /* b2BroadPhase.cpp */; };
@@ -698,6 +699,8 @@
 		C15DF22415E980CF001BD63A /* CreatingMenuController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CreatingMenuController.h; path = ios/LevelEditor/CreatingMenuController.h; sourceTree = "<group>"; };
 		C15DF22515E980CF001BD63A /* CreatingMenuController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = CreatingMenuController.mm; path = ios/LevelEditor/CreatingMenuController.mm; sourceTree = "<group>"; };
 		C15DF22615E980D0001BD63A /* CreatingMenuController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CreatingMenuController.xib; path = ios/LevelEditor/CreatingMenuController.xib; sourceTree = "<group>"; };
+		C15FC4EE15FBEB5500C3484D /* LevelInfoLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LevelInfoLayer.cpp; sourceTree = "<group>"; };
+		C15FC4EF15FBEB5500C3484D /* LevelInfoLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelInfoLayer.h; sourceTree = "<group>"; };
 		C165277515F4944D00F7C0D8 /* InputManagerBase.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = InputManagerBase.cpp; path = Classes/Input/InputManagerBase.cpp; sourceTree = "<group>"; };
 		C165277615F4944D00F7C0D8 /* InputManagerBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = InputManagerBase.h; path = Classes/Input/InputManagerBase.h; sourceTree = "<group>"; };
 		C165277915F538BF00F7C0D8 /* Player.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Player.cpp; path = Classes/GameObjects/Player.cpp; sourceTree = "<group>"; };
@@ -1700,6 +1703,8 @@
 				C15DF19715E199E6001BD63A /* LevelMapLayer.h */,
 				C1384BE315EC91DC00653764 /* LevelMapPrimitiveLayer.cpp */,
 				C1384BE415EC91DC00653764 /* LevelMapPrimitiveLayer.h */,
+				C15FC4EE15FBEB5500C3484D /* LevelInfoLayer.cpp */,
+				C15FC4EF15FBEB5500C3484D /* LevelInfoLayer.h */,
 			);
 			path = Level;
 			sourceTree = "<group>";
@@ -2242,6 +2247,7 @@
 				C165280E15F5424800F7C0D8 /* b2WheelJoint.cpp in Sources */,
 				C165280F15F5424800F7C0D8 /* b2Rope.cpp in Sources */,
 				C1D2285615F5440B004D2132 /* PhysicsWorld.cpp in Sources */,
+				C15FC4F015FBEB5500C3484D /* LevelInfoLayer.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -11,11 +11,13 @@
 
 #include "cocos2d.h"
 #include "LevelMapLayer.h"
+#include "LevelInfoLayer.h"
 
 class LevelScene : public cocos2d::CCScene {
 
 private:
     LevelMapLayer* levelMapLayer;
+    LevelInfoLayer* levelInfoLayer;
     
 public:
     virtual bool init();
