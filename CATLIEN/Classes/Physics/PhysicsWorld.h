@@ -16,7 +16,7 @@
 #define VELOCITY_ITERATIONS 8
 #define POSITION_ITERATIONS 1
 
-class PhysicsWorld : public cocos2d::CCNode
+class PhysicsWorld : public cocos2d::CCNode, public b2ContactListener
 {
 private:
     b2World* _world;
@@ -43,6 +43,9 @@ public:
     void step(float deltaTime);
     b2Body* createBody(const b2BodyDef* bodyDef);
     void destroyBody(b2Body* body);
+    
+    virtual void BeginContact(b2Contact* contact);
+    virtual void EndContact(b2Contact* contact);
 };
 
 #endif /* defined(__CATLIEN__PhysicsWorld__) */

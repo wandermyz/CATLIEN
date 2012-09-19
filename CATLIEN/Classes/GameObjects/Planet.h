@@ -10,6 +10,7 @@
 #define __CATLIEN__Planet__
 
 #include "GameObject.h"
+#include "../Constants.h"
 
 class Planet : public GameObject
 {

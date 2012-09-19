@@ -796,6 +796,7 @@
 		C16527DF15F5424800F7C0D8 /* b2WheelJoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = b2WheelJoint.h; sourceTree = "<group>"; };
 		C16527E115F5424800F7C0D8 /* b2Rope.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = b2Rope.cpp; sourceTree = "<group>"; };
 		C16527E215F5424800F7C0D8 /* b2Rope.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = b2Rope.h; sourceTree = "<group>"; };
+		C1737BE0160A4206001A4828 /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Constants.h; path = Classes/Constants.h; sourceTree = "<group>"; };
 		C183453B15F47C5E00E49B45 /* GameInputManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GameInputManager.cpp; path = Classes/Input/GameInputManager.cpp; sourceTree = "<group>"; };
 		C183453C15F47C5F00E49B45 /* GameInputManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameInputManager.h; path = Classes/Input/GameInputManager.h; sourceTree = "<group>"; };
 		C1C6D0A915EDE26F00CE9F6C /* EditorPanelController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EditorPanelController.h; path = ios/LevelEditor/EditorPanelController.h; sourceTree = "<group>"; };
@@ -1660,6 +1661,7 @@
 				C15DF17515E07B51001BD63A /* AppDelegate.cpp */,
 				C1236CBB15E9ABF5008F5AED /* GlobalEngine.cpp */,
 				C1236CBC15E9ABF5008F5AED /* GlobalEngine.h */,
+				C1737BE0160A4206001A4828 /* Constants.h */,
 			);
 			name = Classes;
 			sourceTree = "<group>";

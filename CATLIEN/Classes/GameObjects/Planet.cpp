@@ -84,7 +84,7 @@ void Planet::createB2Body()
     b2FixtureDef fixtureDef;
     fixtureDef.shape = &shape;
     fixtureDef.density = _density;
-    fixtureDef.friction = 0.05f; //TODO: TBD
+    fixtureDef.friction = PLANET_FRICTION;
     _b2Body->CreateFixture(&fixtureDef);
 }
 

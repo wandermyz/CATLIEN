@@ -7,6 +7,8 @@
 //
 
 #include "PhysicsWorld.h"
+#include "../GameObjects/Player.h"
+#include "../GlobalEngine.h"
 
 bool PhysicsWorld::init()
 {
@@ -15,6 +17,7 @@ bool PhysicsWorld::init()
     _world = new b2World(gravity);
     _world->SetAllowSleeping(true);
     _world->SetContinuousPhysics(true);
+    _world->SetContactListener(this);
     
     return true;
 }
@@ -37,4 +40,40 @@ b2Body* PhysicsWorld::createBody(const b2BodyDef* bodyDef)
 void PhysicsWorld::destroyBody(b2Body *body)
 {
     _world->DestroyBody(body);
+}
+
+void PhysicsWorld::BeginContact(b2Contact *contact)
+{
+    Player* player = GlobalEngine::sharedGlobalEngine()->getPlayer();
+    
+    void* dataA = contact->GetFixtureA()->GetUserData();
+    void* dataB = contact->GetFixtureB()->GetUserData();
+    
+    if (dataA == &Player::fixtureTagSensor)
+    {
+        player->addFootContact();
+    }
+    
+    if (dataB == &Player::fixtureTagSensor)
+    {
+        player->addFootContact();
+    }
+}
+
+void PhysicsWorld::EndContact(b2Contact *contact)
+{
+    Player* player = GlobalEngine::sharedGlobalEngine()->getPlayer();
+    
+    void* dataA = contact->GetFixtureA()->GetUserData();
+    void* dataB = contact->GetFixtureB()->GetUserData();
+
+    if (dataA == &Player::fixtureTagSensor)
+    {
+        player->removeFootContact();
+    }
+    
+    if (dataB == &Player::fixtureTagSensor)
+    {
+        player->removeFootContact();
+    }
 }
