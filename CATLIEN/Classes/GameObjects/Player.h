@@ -20,23 +20,14 @@ typedef enum
     PlayerMoveStateRight
 } PlayerMoveState;
 
-class Player : public GameObject, public b2ContactListener
+class Player : public GameObject
 {
 protected:
+    b2Fixture* _bodyFiexture;
+    b2Fixture* _sensorFixture;
+    
     PlayerMoveState _moveState;
     int _numFootContacts;
-        
-public:
-    static const int fixtureTagBody;
-    static const int fixtureTagSensor;
-    
-    GAME_OBJECT_CREATE_FUNC(Player);
-    GAME_OBJECT_TYPE_FUNC(GameObjectTypePlayer);
-    virtual bool init();
-    virtual void createB2Body();
-    
-    inline void setMoveState(PlayerMoveState moveState) {_moveState = moveState;}
-    inline PlayerMoveState getMoveState() const {return _moveState;}
     
     //TODO: support multiple ground types
     inline void addFootContact()
@@ -46,7 +37,7 @@ public:
         {
             CCLOG("Grounded");
         }
-    } 
+    }
     inline void removeFootContact()
     {
         _numFootContacts--;
@@ -59,7 +50,20 @@ public:
             CCLOGERROR("_numFootContacts goes negative in Player.h");
         }
     }
+    
+public:
+    GAME_OBJECT_CREATE_FUNC(Player);
+    GAME_OBJECT_TYPE_FUNC(GameObjectTypePlayer);
+    virtual bool init();
+    virtual void createB2Body();
+    
+    inline void setMoveState(PlayerMoveState moveState) {_moveState = moveState;}
+    inline PlayerMoveState getMoveState() const {return _moveState;}
+    
     inline bool isGrounded() {return _numFootContacts > 0;}
+    
+    void onBeginContact(b2Contact* contact); 
+    void onEndContact(b2Contact* contact);
 };
 
 #endif /* defined(__CATLIEN__Player__) */

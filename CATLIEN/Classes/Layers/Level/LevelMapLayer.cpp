@@ -176,8 +176,8 @@ void LevelMapLayer::update(float deltaTime)
         
         playerBody->ApplyForceToCenter(force);
         
-        //apply movement
-        b2Vec2 localForce;
+        //apply movement by force
+        /*b2Vec2 localForce;
         switch (_player->getMoveState()) {
             case PlayerMoveStateLeft:
                 localForce.Set(-PLAYER_MOVE_FORCE, 0);
@@ -199,6 +199,35 @@ void LevelMapLayer::update(float deltaTime)
         //b2Vec2 impulse = globalSpeed - playerBody->GetLinearVelocity();
         //impulse *= playerBody->GetMass();
         //playerBody->ApplyLinearImpulse(impulse, playerBody->GetWorldCenter());
+        */
+        
+        
+        //apply movement by impulse
+        if (_player->isGrounded())
+        {
+            b2Vec2 localSpeed;
+            switch (_player->getMoveState()) {
+                case PlayerMoveStateLeft:
+                    localSpeed.Set(-PLAYER_MOVE_SPEED, 0);
+                    break;
+                    
+                case PlayerMoveStateRight:
+                    localSpeed.Set(PLAYER_MOVE_SPEED, 0);
+                    break;
+                    
+                default:
+                    localSpeed.SetZero();
+                    break;
+            }
+            
+            b2Rot rotation(angle);
+            b2Vec2 globalSpeed = b2Mul(rotation, localSpeed);
+            b2Vec2 impulse = globalSpeed - playerBody->GetLinearVelocity();
+            impulse *= playerBody->GetMass();
+            
+            playerBody->ApplyLinearImpulse(impulse, playerBody->GetWorldCenter());
+        }
+        
         
         GlobalEngine::sharedGlobalEngine()->getPhysicsWorld()->step(deltaTime);
     }

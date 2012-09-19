@@ -11,9 +11,6 @@
 using namespace std;
 USING_NS_CC;
 
-const int Player::fixtureTagBody = 0;
-const int Player::fixtureTagSensor = 1;
-
 bool Player::init()
 {
     if (!GameObject::init())
@@ -24,6 +21,8 @@ bool Player::init()
     setName("Player");
     _moveState = PlayerMoveStateStop;
     _numFootContacts = 0;
+    _bodyFiexture = NULL;
+    _sensorFixture = NULL;
     return true;
 }
 
@@ -46,8 +45,9 @@ void Player::createB2Body()
     fixtureDef.shape = &shape;
     fixtureDef.density = 1.0;
     fixtureDef.friction = PLAYER_FRICTION;
-    b2Fixture* fixture = _b2Body->CreateFixture(&fixtureDef);
-    fixture->SetUserData((void*)(&fixtureTagBody));
+    _bodyFiexture = _b2Body->CreateFixture(&fixtureDef);
+    _bodyFiexture->SetUserData(this);
+    
     
     _b2Body->SetLinearDamping(PLAYER_DAMPING);
     
@@ -57,10 +57,34 @@ void Player::createB2Body()
     b2FixtureDef sensorFixtureDef;
     fixtureDef.shape = &sensorShape;
     fixtureDef.isSensor = true;
-    b2Fixture* sensorFixture = _b2Body->CreateFixture(&fixtureDef);
-    sensorFixture->SetUserData((void*)(&fixtureTagSensor));
+    _sensorFixture = _b2Body->CreateFixture(&fixtureDef);
+    _sensorFixture->SetUserData(this);
 }
 
+void Player::onBeginContact(b2Contact *contact)
+{
+    if (contact->GetFixtureA() == _sensorFixture)
+    {
+        addFootContact();
+    }
+    
+    if (contact->GetFixtureB() == _sensorFixture)
+    {
+        addFootContact();
+    }
+}
 
-
+void Player::onEndContact(b2Contact *contact)
+{
+    if (contact->GetFixtureA() == _sensorFixture)
+    {
+        removeFootContact();
+    }
+    
+    if (contact->GetFixtureB() == _sensorFixture)
+    {
+        removeFootContact();
+    }
+    
+}
 

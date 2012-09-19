@@ -43,37 +43,29 @@ void PhysicsWorld::destroyBody(b2Body *body)
 }
 
 void PhysicsWorld::BeginContact(b2Contact *contact)
-{
-    Player* player = GlobalEngine::sharedGlobalEngine()->getPlayer();
-    
+{    
     void* dataA = contact->GetFixtureA()->GetUserData();
     void* dataB = contact->GetFixtureB()->GetUserData();
     
-    if (dataA == &Player::fixtureTagSensor)
-    {
-        player->addFootContact();
-    }
+    GameObjectType typeA = dataA == NULL ? GameObjectTypeNone : ((GameObject*)dataA)->getType();
+    GameObjectType typeB = dataB == NULL ? GameObjectTypeNone : ((GameObject*)dataB)->getType();
     
-    if (dataB == &Player::fixtureTagSensor)
+    if (typeA == GameObjectTypePlayer || typeB == GameObjectTypePlayer)
     {
-        player->addFootContact();
+        GlobalEngine::sharedGlobalEngine()->getPlayer()->onBeginContact(contact);
     }
 }
 
 void PhysicsWorld::EndContact(b2Contact *contact)
 {
-    Player* player = GlobalEngine::sharedGlobalEngine()->getPlayer();
-    
     void* dataA = contact->GetFixtureA()->GetUserData();
     void* dataB = contact->GetFixtureB()->GetUserData();
-
-    if (dataA == &Player::fixtureTagSensor)
-    {
-        player->removeFootContact();
-    }
     
-    if (dataB == &Player::fixtureTagSensor)
+    GameObjectType typeA = dataA == NULL ? GameObjectTypeNone : ((GameObject*)dataA)->getType();
+    GameObjectType typeB = dataB == NULL ? GameObjectTypeNone : ((GameObject*)dataB)->getType();
+    
+    if (typeA == GameObjectTypePlayer || typeB == GameObjectTypePlayer)
     {
-        player->removeFootContact();
+        GlobalEngine::sharedGlobalEngine()->getPlayer()->onEndContact(contact);
     }
 }
