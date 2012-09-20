@@ -17,6 +17,7 @@ bool GameInputManager::init()
 {
     _holdTime = 0;
     _state = GameInputStateNone;
+    _movingTouch = NULL;
     return true;
 }
 
@@ -39,12 +40,23 @@ bool GameInputManager::ccTouchBegan(CCTouch* touch, CCEvent* evnet)
         if (pos.x < winSize.width / 3)
         {
             GlobalEngine::sharedGlobalEngine()->getPlayer()->setMoveState(PlayerMoveStateLeft);
+             _movingTouch = touch;
             CCLog("Move Left");
         }
         else if (pos.x > winSize.width * 2/3)
         {
             GlobalEngine::sharedGlobalEngine()->getPlayer()->setMoveState(PlayerMoveStateRight);
+             _movingTouch = touch;
             CCLog("Move Right");
+        }
+        else
+        {
+            Player* player = GlobalEngine::sharedGlobalEngine()->getPlayer();
+            if (player->isGrounded() && player->getJumpState() == PlayerJumpStateNone)
+            {
+                player->setJumpState(PlayerJumpStatePending);
+            }
+            CCLog("Jump");
         }
     }
     
@@ -72,8 +84,11 @@ void GameInputManager::ccTouchEnded(CCTouch* touch, CCEvent* event)
     
     if (GlobalEngine::sharedGlobalEngine()->getPlayer()->getMoveState() != PlayerMoveStateStop)
     {
-        GlobalEngine::sharedGlobalEngine()->getPlayer()->setMoveState(PlayerMoveStateStop);
-        CCLog("Move Stop");
+        if (_movingTouch == touch)
+        {
+            GlobalEngine::sharedGlobalEngine()->getPlayer()->setMoveState(PlayerMoveStateStop);
+            CCLog("Move Stop");
+        }
     }
 }
 

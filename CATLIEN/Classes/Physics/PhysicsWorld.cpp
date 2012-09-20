@@ -130,7 +130,7 @@ void PhysicsWorld::step(float deltaTime)
     
     
     //apply movement by impulse
-    if (player->isGrounded())
+    if (player->isGrounded() && player->getJumpState() != PlayerJumpStateLeaving)
     {
         b2Vec2 localSpeed;
         switch (player->getMoveState()) {
@@ -153,6 +153,24 @@ void PhysicsWorld::step(float deltaTime)
         impulse *= playerBody->GetMass();
         
         playerBody->ApplyLinearImpulse(impulse, playerBody->GetWorldCenter());
+    }
+    
+    //apply jumping
+    if (player->getJumpState() == PlayerJumpStatePending)
+    {
+        player->setJumpState(PlayerJumpStateLeaving);
+        
+        if (player->isGrounded())
+        {
+            b2Vec2 localJumpSpeed;
+            localJumpSpeed.Set(PLAYER_JUMP_SPEED, 0);
+            b2Rot jumpRotation(angle + b2_pi / 2.0f);
+            b2Vec2 globalJumpSpeed = b2Mul(jumpRotation, localJumpSpeed);
+            b2Vec2 jumpImpulse = globalJumpSpeed;
+            jumpImpulse *= playerBody->GetMass();
+            
+            playerBody->ApplyLinearImpulse(jumpImpulse, playerBody->GetWorldCenter());
+        }
     }
     
     _world->Step(deltaTime, VELOCITY_ITERATIONS, POSITION_ITERATIONS);

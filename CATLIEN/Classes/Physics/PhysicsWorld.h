@@ -46,6 +46,7 @@ public:
     void step(float deltaTime);
     b2Body* createBody(const b2BodyDef* bodyDef);
     void destroyBody(b2Body* body);
+    void playerJump();
     
     virtual void BeginContact(b2Contact* contact);
     virtual void EndContact(b2Contact* contact);

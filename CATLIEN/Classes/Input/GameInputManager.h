@@ -23,6 +23,7 @@ class GameInputManager : public InputManagerBase
 private:
     float _holdTime;
     GameInputState _state;
+    cocos2d::CCTouch* _movingTouch;
 
 public:
     INPUT_MANAGER_CREATE_FUNC(GameInputManager);

@@ -20,6 +20,14 @@ typedef enum
     PlayerMoveStateRight
 } PlayerMoveState;
 
+typedef enum
+{
+    PlayerJumpStateNone,
+    PlayerJumpStatePending, //Jump requested, but impulse is not applied yet
+    PlayerJumpStateLeaving, //Impulse applied, but still grounded
+    PlayerJumpStateOnAir   //Ungrounded
+} PlayerJumpState;
+
 class Player : public GameObject
 {
 protected:
@@ -27,33 +35,13 @@ protected:
     b2Fixture* _sensorFixture;
     
     PlayerMoveState _moveState;
+    PlayerJumpState _jumpState;
     int _numFootContacts;
     
     GameObject* _currentGround;
     
-    //TODO: handle contact on multiple grounds
-    inline void addFootContact(GameObject* ground)
-    {
-        _numFootContacts++;
-        _currentGround = ground;
-        if (_numFootContacts == 1)
-        {
-            CCLOG("Grounded");
-        }
-    }
-    inline void removeFootContact()
-    {
-        _numFootContacts--;
-        _currentGround = NULL;
-        if (_numFootContacts == 0)
-        {
-            CCLOG("Ungrounded");
-        }
-        else if (_numFootContacts < 0)
-        {
-            CCLOGERROR("_numFootContacts goes negative in Player.h");
-        }
-    }
+    void addFootContact(GameObject* ground);
+    void removeFootContact();
     
 public:
     GAME_OBJECT_CREATE_FUNC(Player);
@@ -63,6 +51,13 @@ public:
     
     inline void setMoveState(PlayerMoveState moveState) {_moveState = moveState;}
     inline PlayerMoveState getMoveState() const {return _moveState;}
+    
+    inline void setJumpState(PlayerJumpState jumpState)
+    {
+        _jumpState = jumpState;
+        cocos2d::CCLog("Jump State: %d", _jumpState);
+    }
+    inline PlayerJumpState getJumpState() const { return _jumpState;}
     
     inline bool isGrounded() {return _numFootContacts > 0;}
     

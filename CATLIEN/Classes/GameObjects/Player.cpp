@@ -24,6 +24,7 @@ bool Player::init()
     _bodyFiexture = NULL;
     _sensorFixture = NULL;
     _currentGround = NULL;
+    _jumpState = PlayerJumpStateNone;
     return true;
 }
 
@@ -87,5 +88,37 @@ void Player::onEndContact(b2Contact *contact)
         removeFootContact();
     }
     
+}
+
+//TODO: handle contact on multiple grounds
+void Player::addFootContact(GameObject* ground)
+{
+    _numFootContacts++;
+    _currentGround = ground;
+    if (_numFootContacts == 1)
+    {
+        if (_jumpState == PlayerJumpStateOnAir)
+        {
+            setJumpState(PlayerJumpStateNone);
+        }
+        CCLOG("Grounded");
+    }
+}
+void Player::removeFootContact()
+{
+    _numFootContacts--;
+    _currentGround = NULL;
+    if (_numFootContacts == 0)
+    {
+        if (_jumpState == PlayerJumpStateLeaving)
+        {
+            setJumpState(PlayerJumpStateOnAir);
+        }
+        CCLOG("Ungrounded");
+    }
+    else if (_numFootContacts < 0)
+    {
+        CCLOGERROR("_numFootContacts goes negative in Player.h");
+    }
 }
 
