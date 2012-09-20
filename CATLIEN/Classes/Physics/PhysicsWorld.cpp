@@ -173,6 +173,16 @@ void PhysicsWorld::step(float deltaTime)
         }
     }
     
+    //check damping
+    if (player->isGrounded())
+    {
+        playerBody->SetLinearDamping(0);
+    }
+    else
+    {
+        playerBody->SetLinearDamping(PLAYER_DAMPING);
+    }
+    
     _world->Step(deltaTime, VELOCITY_ITERATIONS, POSITION_ITERATIONS);
 }
 

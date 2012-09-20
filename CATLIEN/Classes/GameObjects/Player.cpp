@@ -51,7 +51,7 @@ void Player::createB2Body()
     _bodyFiexture->SetUserData(this);
     
     
-    _b2Body->SetLinearDamping(PLAYER_DAMPING);
+    //_b2Body->SetLinearDamping(PLAYER_DAMPING);
     
     //add foot sensor fixture
     b2PolygonShape sensorShape;
