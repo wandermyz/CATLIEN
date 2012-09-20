@@ -13,8 +13,6 @@
 #include "../../GameObjects/Planet.h"
 USING_NS_CC;
 
-#define GRAVITY_CONST 1
-
 bool LevelMapLayer::init()
 {
     if (!CCLayer::init())
@@ -142,93 +140,8 @@ void LevelMapLayer::removeElement(GameObject *gameObject)
 
 void LevelMapLayer::update(float deltaTime)
 {
-    //TODO:
-    /*
-     When grounded, not force by other planets
-     how to clear out friction?
-     */
-    
     if (GlobalEngine::sharedGlobalEngine()->getGameMode() == GameModeLevel)
     {
-        //add gravity
-        b2Vec2 force;
-        force.SetZero();
-        
-        b2Body* playerBody = _player->getB2Body();
-        b2Vec2 playerPos = playerBody->GetPosition();
-        
-        for (int i = 0; i < _planets->count(); i++)
-        {
-            GameObject* obj = (GameObject*)_planets->objectAtIndex(i);
-            b2Vec2 planetPos = obj->getB2Body()->GetPosition();
-            
-            b2Vec2 offset = planetPos - playerPos;
-            float scalar = playerBody->GetMass() * ((Planet*)obj)->getB2Mass() / offset.LengthSquared() * GRAVITY_CONST;  //mass = 0 for static b2body, so use our own mass computing
-            
-            b2Vec2 gravity;
-            gravity.Set(offset.x * scalar, offset.y * scalar);
-            force += gravity;
-        }
-        
-        //rotate to gravity
-        float angle = atan2(force.y, force.x) + b2_pi / 2.0f;
-        playerBody->SetTransform(playerBody->GetPosition(), angle);
-        
-        playerBody->ApplyForceToCenter(force);
-        
-        //apply movement by force
-        /*b2Vec2 localForce;
-        switch (_player->getMoveState()) {
-            case PlayerMoveStateLeft:
-                localForce.Set(-PLAYER_MOVE_FORCE, 0);
-                break;
-                
-            case PlayerMoveStateRight:
-                localForce.Set(PLAYER_MOVE_FORCE, 0);
-                break;
-                
-            default:
-                localForce.SetZero();
-                break;
-        }
-        
-        b2Rot rotation(angle);
-        b2Vec2 globalForce = b2Mul(rotation, localForce);
-        playerBody->ApplyForceToCenter(globalForce);
-        
-        //b2Vec2 impulse = globalSpeed - playerBody->GetLinearVelocity();
-        //impulse *= playerBody->GetMass();
-        //playerBody->ApplyLinearImpulse(impulse, playerBody->GetWorldCenter());
-        */
-        
-        
-        //apply movement by impulse
-        if (_player->isGrounded())
-        {
-            b2Vec2 localSpeed;
-            switch (_player->getMoveState()) {
-                case PlayerMoveStateLeft:
-                    localSpeed.Set(-PLAYER_MOVE_SPEED, 0);
-                    break;
-                    
-                case PlayerMoveStateRight:
-                    localSpeed.Set(PLAYER_MOVE_SPEED, 0);
-                    break;
-                    
-                default:
-                    localSpeed.SetZero();
-                    break;
-            }
-            
-            b2Rot rotation(angle);
-            b2Vec2 globalSpeed = b2Mul(rotation, localSpeed);
-            b2Vec2 impulse = globalSpeed - playerBody->GetLinearVelocity();
-            impulse *= playerBody->GetMass();
-            
-            playerBody->ApplyLinearImpulse(impulse, playerBody->GetWorldCenter());
-        }
-        
-        
         GlobalEngine::sharedGlobalEngine()->getPhysicsWorld()->step(deltaTime);
     }
 }

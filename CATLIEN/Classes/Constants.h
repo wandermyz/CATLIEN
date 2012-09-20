@@ -10,6 +10,7 @@
 #define CATLIEN_Constants_h
 
 #define PLANET_FRICTION 0
+#define GRAVITY_CONST 1
 
 //#define PLAYER_MOVE_FORCE 200.0f
 #define PLAYER_MOVE_SPEED 10.0f

@@ -11,6 +11,8 @@
 
 #include "cocos2d.h"
 #include "Box2D.h"
+#include "../GameObjects/Planet.h"
+#include "../GameObjects/Player.h"
 
 #define PTM_RATIO 32
 #define VELOCITY_ITERATIONS 8
@@ -20,6 +22,7 @@ class PhysicsWorld : public cocos2d::CCNode, public b2ContactListener
 {
 private:
     b2World* _world;
+    b2Vec2 getGravity(Player* player, Planet* planet);
     
 public:
     static PhysicsWorld* create()

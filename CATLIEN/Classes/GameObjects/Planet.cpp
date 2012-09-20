@@ -85,7 +85,8 @@ void Planet::createB2Body()
     fixtureDef.shape = &shape;
     fixtureDef.density = _density;
     fixtureDef.friction = PLANET_FRICTION;
-    _b2Body->CreateFixture(&fixtureDef);
+    b2Fixture* fixture = _b2Body->CreateFixture(&fixtureDef);
+    fixture->SetUserData(this);
 }
 
 float Planet::getB2Mass()

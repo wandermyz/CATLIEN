@@ -29,10 +29,13 @@ protected:
     PlayerMoveState _moveState;
     int _numFootContacts;
     
-    //TODO: support multiple ground types
-    inline void addFootContact()
+    GameObject* _currentGround;
+    
+    //TODO: handle contact on multiple grounds
+    inline void addFootContact(GameObject* ground)
     {
         _numFootContacts++;
+        _currentGround = ground;
         if (_numFootContacts == 1)
         {
             CCLOG("Grounded");
@@ -41,6 +44,7 @@ protected:
     inline void removeFootContact()
     {
         _numFootContacts--;
+        _currentGround = NULL;
         if (_numFootContacts == 0)
         {
             CCLOG("Ungrounded");
@@ -64,6 +68,8 @@ public:
     
     void onBeginContact(b2Contact* contact); 
     void onEndContact(b2Contact* contact);
+    
+    inline GameObject* getCurrentGround() const {return _currentGround;}
 };
 
 #endif /* defined(__CATLIEN__Player__) */

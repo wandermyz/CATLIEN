@@ -51,6 +51,7 @@ public:
     virtual void update(float deltaTime);
     
     inline Player* getPlayer() const {return _player;}
+    inline cocos2d::CCArray* getPlanets() const { return _planets;}
 };
 
 #endif /* defined(__CATLIEN__LevelMapLayer__) */

@@ -23,6 +23,7 @@ bool Player::init()
     _numFootContacts = 0;
     _bodyFiexture = NULL;
     _sensorFixture = NULL;
+    _currentGround = NULL;
     return true;
 }
 
@@ -65,12 +66,12 @@ void Player::onBeginContact(b2Contact *contact)
 {
     if (contact->GetFixtureA() == _sensorFixture)
     {
-        addFootContact();
+        addFootContact((GameObject*)contact->GetFixtureB()->GetUserData());
     }
     
     if (contact->GetFixtureB() == _sensorFixture)
     {
-        addFootContact();
+        addFootContact((GameObject*)contact->GetFixtureA()->GetUserData());
     }
 }
 
