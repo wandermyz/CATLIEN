@@ -2326,7 +2326,7 @@
 				GCC_PREFIX_HEADER = CATLIEN/Prefix.pch;
 				"GCC_THUMB_SUPPORT[arch=armv6]" = "";
 				INFOPLIST_FILE = CATLIEN/Resources/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				OTHER_LDFLAGS = (
 					"-lxml2",
 					"-lz",
@@ -2346,7 +2346,7 @@
 				GCC_PREFIX_HEADER = CATLIEN/Prefix.pch;
 				"GCC_THUMB_SUPPORT[arch=armv6]" = "";
 				INFOPLIST_FILE = CATLIEN/Resources/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				OTHER_LDFLAGS = (
 					"-lxml2",
 					"-lz",
