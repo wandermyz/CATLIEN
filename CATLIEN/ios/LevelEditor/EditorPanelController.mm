@@ -128,11 +128,11 @@
                 break;
         }
         
-        return tableView.rowHeight * rowNum;
+        return 60 * rowNum;
     }
     else
     {
-        return tableView.rowHeight;
+        return 60;
     }
 }
 

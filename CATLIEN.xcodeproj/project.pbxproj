@@ -1678,10 +1678,10 @@
 		C15DF19315E1998A001BD63A /* GameObjects */ = {
 			isa = PBXGroup;
 			children = (
-				C15DF19915E19A38001BD63A /* GameObject.cpp */,
 				C15DF19A15E19A38001BD63A /* GameObject.h */,
 				C15DF19C15E19FF3001BD63A /* Planet.cpp */,
 				C15DF19D15E19FF3001BD63A /* Planet.h */,
+				C15DF19915E19A38001BD63A /* GameObject.cpp */,
 				C1236CC115E9FF99008F5AED /* GameObjects.h */,
 				C165277915F538BF00F7C0D8 /* Player.cpp */,
 				C165277A15F538BF00F7C0D8 /* Player.h */,
@@ -2261,7 +2261,6 @@
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -2280,8 +2279,8 @@
 					"\"$(PROJECT_NAME)/libs\"",
 					"\"$(SDKROOT)/usr/include/libxml2\"",
 				);
-				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
-				PROVISIONING_PROFILE = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				PROVISIONING_PROFILE = "c852edc5-7736-488c-bade-26e22b7f6e50";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				SDKROOT = iphoneos;
 			};
@@ -2292,7 +2291,6 @@
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					NDEBUG,
@@ -2308,10 +2306,10 @@
 					"\"$(PROJECT_NAME)/libs\"",
 					"\"$(SDKROOT)/usr/include/libxml2\"",
 				);
-				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				PROVISIONING_PROFILE = "";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "c852edc5-7736-488c-bade-26e22b7f6e50";
 				SDKROOT = iphoneos;
 			};
 			name = Release;
@@ -2326,7 +2324,7 @@
 				GCC_PREFIX_HEADER = CATLIEN/Prefix.pch;
 				"GCC_THUMB_SUPPORT[arch=armv6]" = "";
 				INFOPLIST_FILE = CATLIEN/Resources/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				OTHER_LDFLAGS = (
 					"-lxml2",
 					"-lz",
@@ -2346,7 +2344,7 @@
 				GCC_PREFIX_HEADER = CATLIEN/Prefix.pch;
 				"GCC_THUMB_SUPPORT[arch=armv6]" = "";
 				INFOPLIST_FILE = CATLIEN/Resources/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				OTHER_LDFLAGS = (
 					"-lxml2",
 					"-lz",
